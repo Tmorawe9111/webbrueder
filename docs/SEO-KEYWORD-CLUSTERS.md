@@ -6,6 +6,7 @@ Eine URL = eine Hauptintention. Die **Startseite** [`index.html`](../index.html)
 |-----------|-------------------------|-------------------------------------|
 | `https://webbrüder.de/` | Webseiten erstellen lassen mit Webdesign, SEO und GEO für KMU in Deutschland | Webdesign Frankfurt, Webentwicklung, ohne Baukasten, DSGVO |
 | `https://webbrüder.de/gastronomie-webseite.html` | Website / Webseite für Gastronomie (Restaurant, Speisekarte, Reservierung) | Webseite Restaurant, Gastro Website, lokal SEO |
+| `https://webbrüder.de/handwerk-webseite.html` | Website für Handwerk / SHK / Elektro (Leistungen, Vertrauen, lokale Suche) | Handwerker Website, SHK Webseite, Meisterbetrieb online |
 | `https://webbrüder.de/impressum.html` | Rechtliche Anbieterkennung | — |
 | `https://webbrüder.de/datenschutz.html` | Datenschutzerklärung | — |
 
