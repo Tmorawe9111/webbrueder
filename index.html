@@ -260,6 +260,8 @@ button { font-family: inherit; cursor: pointer; }
   font-weight: 400;
   line-height: 1.2;
   color: var(--text);
+  max-width: min(52rem, 100%);
+  letter-spacing: -0.02em;
 }
 
 .heading-md {
@@ -647,9 +649,10 @@ a.portfolio-shot {
   object-position: center 12%;
   display: block;
 }
-.portfolio-shot--luolou img { object-position: center 6%; }
+.portfolio-shot--delifiona img { object-position: center 42%; }
 .portfolio-shot--bevis img { object-position: center top; }
 .portfolio-shot--baypw img { object-position: center 5%; }
+.portfolio-shot--gaerte img { object-position: center 28%; }
 .portfolio-shot--sample img { object-position: center center; }
 .portfolio-shot-cap {
   position: absolute;
@@ -741,11 +744,22 @@ a.portfolio-shot {
   justify-content: space-between;
   align-items: flex-end;
   margin-bottom: 4rem;
-  gap: 2rem;
+  gap: clamp(2rem, 5vw, 4rem);
+}
+
+.portfolio-header > div:first-child {
+  flex: 1 1 auto;
+  min-width: 0;
+  max-width: min(56rem, 100%);
+}
+
+.portfolio-header .heading-lg {
+  max-width: none;
 }
 
 .portfolio-header .text-body {
-  max-width: 380px;
+  flex: 0 1 17rem;
+  max-width: 20rem;
   text-align: right;
 }
 
@@ -833,7 +847,7 @@ a.portfolio-shot {
 
 .branchen-header {
   text-align: center;
-  max-width: 640px;
+  max-width: min(52rem, 100%);
   margin: 0 auto 1.25rem;
 }
 
@@ -967,7 +981,7 @@ a.portfolio-shot {
 }
 
 .leistungen-header {
-  max-width: 600px;
+  max-width: min(48rem, 100%);
   margin-bottom: 4rem;
 }
 
@@ -1018,7 +1032,7 @@ a.portfolio-shot {
 }
 
 .sichtbarkeit-header {
-  max-width: 640px;
+  max-width: min(52rem, 100%);
   margin: 0 auto 3rem;
   text-align: center;
 }
@@ -1085,7 +1099,7 @@ a.portfolio-shot {
 
 .prozess-header {
   text-align: center;
-  max-width: 550px;
+  max-width: min(44rem, 100%);
   margin: 0 auto 4rem;
 }
 
@@ -1184,7 +1198,7 @@ a.portfolio-shot {
 
 .ueber-content .heading-lg {
   margin-bottom: 0.85rem;
-  max-width: 26rem;
+  max-width: min(36rem, 100%);
 }
 
 .ueber-content .heading-lg em {
@@ -1257,7 +1271,7 @@ a.portfolio-shot {
 
 .faq-header {
   text-align: center;
-  max-width: 500px;
+  max-width: min(42rem, 100%);
   margin: 0 auto 3.5rem;
 }
 
@@ -1343,7 +1357,7 @@ a.portfolio-shot {
 
 .kontakt-inner {
   text-align: center;
-  max-width: 640px;
+  max-width: min(46rem, 100%);
   margin: 0 auto;
 }
 
@@ -1620,7 +1634,12 @@ footer a:hover { color: var(--accent); }
     flex-direction: column;
     align-items: flex-start;
   }
-  .portfolio-header .text-body { text-align: left; }
+  .portfolio-header > div:first-child { max-width: 100%; }
+  .portfolio-header .text-body {
+    text-align: left;
+    flex: none;
+    max-width: 100%;
+  }
 
   .branchen-grid {
     grid-template-columns: 1fr;
@@ -1808,24 +1827,24 @@ footer a:hover { color: var(--accent); }
     <div class="portfolio-header">
       <div>
         <div class="eyebrow reveal">Ausgewählte Projekte</div>
-        <h2 class="heading-lg reveal">Webdesign-Referenzen:<br>Restaurant, Plattform &amp; Handwerk</h2>
+        <h2 class="heading-lg reveal">Webdesign-Referenzen:<br>Gastronomie, Plattform, Gesundheit &amp; Handwerk</h2>
       </div>
-      <p class="text-body reveal">Live im Netz: echte Kundenwebsites (u. a. <strong>Website Gastronomie</strong>, Plattform, Gesundheit). Plus typische Branchen-Layouts als Orientierung — Details zeige ich gern persönlich.</p>
+      <p class="text-body reveal">Live im Netz: echte Kundenwebsites — z. B. <strong>Deli Fiona</strong> (Gastro), <strong>Gaerte SHK</strong> (Handwerk Hamburg), dazu Plattform und ambulante Pflege. Details zeige ich gern persönlich.</p>
     </div>
 
     <div class="portfolio-grid">
 
       <div class="portfolio-item reveal">
-        <a href="https://luolou.de" target="_blank" rel="noopener noreferrer" class="portfolio-shot portfolio-shot--luolou">
-          <img src="assets/previews/luolou.png" alt="Live-Website luolou.de — Restaurant Luolou, Kronberg" loading="lazy">
-          <span class="portfolio-shot-cap">luolou.de · Live</span>
+        <a href="https://www.delifiona.de/" target="_blank" rel="noopener noreferrer" class="portfolio-shot portfolio-shot--delifiona">
+          <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&amp;fit=crop&amp;w=1400&amp;q=80" alt="Live-Website delifiona.de — Deli Fiona, Restaurant &amp; Vinothek Kronberg" width="1400" height="933" loading="lazy">
+          <span class="portfolio-shot-cap">delifiona.de · Live</span>
         </a>
         <div class="portfolio-info">
           <div class="portfolio-tag">Gastronomie</div>
-          <h3 class="portfolio-title">Luolou — Restaurant, Kronberg</h3>
-          <p class="portfolio-desc">Moderner Online-Auftritt für ein französisch-mediterranes Restaurant. Tischreservierung, Speisekarte und Atmosphäre — digital überzeugend umgesetzt.</p>
-          <div class="portfolio-result">+40 % Online-Reservierungen</div>
-          <a href="https://luolou.de" target="_blank" rel="noopener noreferrer" class="portfolio-link">Live-Website öffnen →</a>
+          <h3 class="portfolio-title">Deli Fiona — Restaurant &amp; Vinothek, Kronberg</h3>
+          <p class="portfolio-desc">Italienisches Restaurant mit Pinsa, Vinothek und klarer Gastronomie-Story online — Stimmung, Speisekarte und Orientierung für Gäste.</p>
+          <div class="portfolio-result">Live-Website · Reservierung &amp; Speisekarte</div>
+          <a href="https://www.delifiona.de/" target="_blank" rel="noopener noreferrer" class="portfolio-link">Live-Website öffnen →</a>
         </div>
       </div>
 
@@ -1858,30 +1877,16 @@ footer a:hover { color: var(--accent); }
       </div>
 
       <div class="portfolio-item reveal">
-        <div class="portfolio-shot portfolio-shot--sample">
-          <img src="https://images.unsplash.com/photo-1621905252507-b35492cc74b4?auto=format&fit=crop&w=1400&q=80" alt="Stimmungsbild Handwerk — typisches Layout für Elektrobetriebe" loading="lazy">
-          <span class="portfolio-shot-cap">Beispiel Handwerk</span>
-        </div>
+        <a href="https://www.gaerte-shk.de/" target="_blank" rel="noopener noreferrer" class="portfolio-shot portfolio-shot--gaerte">
+          <img src="https://le-de.cdn-website.com/ee3c8e35274b4222877f0a4a49e0cf60/dms3rep/multi/opt/gaerte-header-start-2-1920w.jpg" alt="Live-Website gaerte-shk.de — Gaerte GmbH Sanitär &amp; Heizung, Hamburg" width="1920" height="1080" loading="lazy">
+          <span class="portfolio-shot-cap">gaerte-shk.de · Live</span>
+        </a>
         <div class="portfolio-info">
           <div class="portfolio-tag">Handwerk</div>
-          <h3 class="portfolio-title">Elektro Schmidt &amp; Partner<span class="portfolio-konzept-badge">Konzept</span></h3>
-          <p class="portfolio-desc">Fiktives Beispiel für einen Elektrobetrieb im Rhein-Main-Gebiet: Leistungen, Notdienst-Hinweis, Referenzen und klare Anruf-CTAs — so bauen Handwerksbetriebe Vertrauen online auf.</p>
-          <div class="portfolio-result">Typische Struktur: Anfrage &amp; Vertrauen</div>
-          <p class="portfolio-note">Branchen-Layout auf Anfrage mit echten Screens aus ähnlichen Projekten — kein öffentlicher Demo-Link.</p>
-        </div>
-      </div>
-
-      <div class="portfolio-item reveal">
-        <div class="portfolio-shot portfolio-shot--sample">
-          <img src="https://images.unsplash.com/photo-1579684385127-1ef15d5081c0?auto=format&fit=crop&w=1400&q=80" alt="Stimmungsbild Praxis — typisches Layout für Ärzte" loading="lazy">
-          <span class="portfolio-shot-cap">Beispiel Praxis</span>
-        </div>
-        <div class="portfolio-info">
-          <div class="portfolio-tag">Arzt / Praxis</div>
-          <h3 class="portfolio-title">Gemeinschaftspraxis am Park<span class="portfolio-konzept-badge">Konzept</span></h3>
-          <p class="portfolio-desc">Fiktives Beispiel für eine hausärztliche Gemeinschaftspraxis: Team, Sprechzeiten, Terminwege und verständliche Patienteninformationen — barrierearm und DSGVO-sauber gedacht.</p>
-          <div class="portfolio-result">Fokus: Orientierung &amp; Vertrauen</div>
-          <p class="portfolio-note">Gerne zeige ich Ihnen angepasste Entwürfe im Gespräch — angelehnt an Live-Projekte aus dem Gesundheitsbereich.</p>
+          <h3 class="portfolio-title">Gaerte GmbH — Sanitär, Gas &amp; Heizung, Hamburg</h3>
+          <p class="portfolio-desc">Handwerk mit Präzision: klarer Auftritt für SHK &amp; Klempnerei — Leistungen, Team und direkte Kontaktmöglichkeiten, wie Kund:innen es von einem Betrieb vor Ort erwarten.</p>
+          <div class="portfolio-result">Live-Referenz · Handwerk Hamburg</div>
+          <a href="https://www.gaerte-shk.de/" target="_blank" rel="noopener noreferrer" class="portfolio-link">Live-Website öffnen →</a>
         </div>
       </div>
 
@@ -2378,7 +2383,7 @@ function handleSubmit(btn) {
   var BRANCHEN = [
     { img: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1400&q=80', alt: 'Gastronomie — Restaurant und Gäste', name: 'Gastronomie' },
     { img: 'https://images.unsplash.com/photo-1621905252507-b35492cc74b4?auto=format&fit=crop&w=1400&q=80', alt: 'Handwerk — Elektriker bei der Arbeit', name: 'Handwerk' },
-    { img: 'https://images.unsplash.com/photo-1579684385127-1ef15d5081c0?auto=format&fit=crop&w=1400&q=80', alt: 'Gesundheit — Praxis und Beratung', name: 'Gesundheit' },
+    { img: 'https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=1400&q=80', alt: 'Gesundheit — moderne Versorgung und medizinische Beratung', name: 'Gesundheit' },
     { img: 'https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=1400&q=80', alt: 'Kanzlei — Akten und Recht', name: 'Kanzlei' },
     { img: 'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1400&q=80', alt: 'Dienstleister — Büro und Beratung', name: 'Dienstleister' }
   ];
