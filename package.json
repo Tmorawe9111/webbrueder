@@ -1,5 +1,8 @@
 {
   "name": "webbrueder",
   "private": true,
-  "description": "Webbrüder — statische Marketingseite (Vercel / statisches HTML)"
+  "description": "Webbrüder — statische Marketingseite (Vercel / statisches HTML)",
+  "devDependencies": {
+    "playwright": "^1.49.1"
+  }
 }
