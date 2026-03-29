@@ -22,6 +22,10 @@
 <meta name="msapplication-TileColor" content="#2D5A3D">
 <meta name="format-detection" content="telephone=yes">
 <meta name="referrer" content="strict-origin-when-cross-origin">
+<!-- Nach Verifizierung auskommentieren entfernen und Inhalt von GSC/Bing eintragen:
+<meta name="google-site-verification" content="HIER_TOKEN_EINFÜGEN">
+<meta name="msvalidate.01" content="HIER_BING_CODE_EINFÜGEN">
+-->
 <link rel="alternate" hreflang="de-DE" href="https://webbrüder.de/">
 <link rel="alternate" hreflang="x-default" href="https://webbrüder.de/">
 <link rel="canonical" href="https://webbrüder.de/">
@@ -43,7 +47,9 @@
 <meta name="twitter:image" content="https://webbrüder.de/assets/hero/hero-team-desks.jpg">
 <meta name="twitter:image:alt" content="Webbrüder — Team und Webentwicklung am Schreibtisch">
 <link rel="preconnect" href="https://images.unsplash.com" crossorigin>
-<link rel="preload" href="assets/hero/hero-team-desks.jpg" as="image">
+<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+<link rel="preconnect" href="https://unpkg.com" crossorigin>
+<link rel="preload" href="assets/hero/hero-team-desks.jpg" as="image" fetchpriority="high">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -358,8 +364,9 @@ button { font-family: inherit; cursor: pointer; }
   font-family: var(--serif);
   font-size: clamp(2rem, 4vw, 3rem);
   font-weight: 400;
-  line-height: 1.2;
+  line-height: 1.22;
   color: var(--text);
+  text-wrap: balance;
 }
 
 .heading-md {
@@ -665,6 +672,7 @@ button { font-family: inherit; cursor: pointer; }
   letter-spacing: -0.02em;
   color: var(--text);
   margin: 0 0 1.5rem;
+  text-wrap: balance;
 }
 
 .hero-display-line {
@@ -688,8 +696,33 @@ button { font-family: inherit; cursor: pointer; }
   font-weight: 300;
   line-height: 1.75;
   color: var(--text-muted);
-  margin: 0 0 2.25rem;
+  margin: 0 0 1.35rem;
   max-width: 36rem;
+}
+
+.hero-facts {
+  margin: 0 0 1.75rem;
+  max-width: 38rem;
+  padding: 1rem 1.15rem;
+  background: rgba(45, 90, 61, 0.06);
+  border-left: 3px solid var(--accent);
+  border-radius: 0 8px 8px 0;
+  font-size: 0.88rem;
+  line-height: 1.65;
+  color: var(--text-muted);
+}
+
+.hero-facts p {
+  margin: 0 0 0.5rem;
+}
+
+.hero-facts p:last-child {
+  margin-bottom: 0;
+}
+
+.hero-facts strong {
+  color: var(--text);
+  font-weight: 600;
 }
 
 .hero-ctas {
@@ -959,7 +992,7 @@ a.portfolio-browser-wrap:focus-visible {
 
 .branchen-header {
   text-align: center;
-  max-width: 640px;
+  max-width: min(52rem, 100%);
   margin: 0 auto 1.25rem;
 }
 
@@ -1093,7 +1126,7 @@ a.portfolio-browser-wrap:focus-visible {
 }
 
 .leistungen-header {
-  max-width: 600px;
+  max-width: min(44rem, 100%);
   margin-bottom: 4rem;
 }
 
@@ -1144,7 +1177,7 @@ a.portfolio-browser-wrap:focus-visible {
 }
 
 .sichtbarkeit-header {
-  max-width: 640px;
+  max-width: min(48rem, 100%);
   margin: 0 auto 3rem;
   text-align: center;
 }
@@ -1211,7 +1244,7 @@ a.portfolio-browser-wrap:focus-visible {
 
 .prozess-header {
   text-align: center;
-  max-width: 550px;
+  max-width: min(42rem, 100%);
   margin: 0 auto 4rem;
 }
 
@@ -1383,7 +1416,7 @@ a.portfolio-browser-wrap:focus-visible {
 
 .faq-header {
   text-align: center;
-  max-width: 500px;
+  max-width: min(40rem, 100%);
   margin: 0 auto 3.5rem;
 }
 
@@ -1469,7 +1502,7 @@ a.portfolio-browser-wrap:focus-visible {
 
 .kontakt-inner {
   text-align: center;
-  max-width: 640px;
+  max-width: min(46rem, 100%);
   margin: 0 auto;
 }
 
@@ -1528,82 +1561,6 @@ a.portfolio-browser-wrap:focus-visible {
 }
 .kontakt-mail:hover { border-color: var(--accent); color: var(--accent); }
 .kontakt-mail svg { fill: currentColor; }
-
-.kontakt-divider {
-  display: flex;
-  align-items: center;
-  gap: 1.2rem;
-  margin-bottom: 2.5rem;
-}
-.kontakt-divider::before,
-.kontakt-divider::after {
-  content: '';
-  flex: 1;
-  height: 1px;
-  background: var(--border);
-}
-.kontakt-divider span {
-  font-size: 0.72rem;
-  font-weight: 500;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--text-muted);
-}
-
-.kontakt-form {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1px;
-  max-width: 460px;
-  margin: 0 auto;
-  background: var(--border);
-  border: 1px solid var(--border);
-  border-radius: 4px;
-  overflow: hidden;
-}
-
-.form-group {
-  display: flex;
-  flex-direction: column;
-  background: var(--surface);
-}
-
-.form-label {
-  font-size: 0.68rem;
-  font-weight: 500;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--text-muted);
-  padding: 0.7rem 1rem 0.2rem;
-}
-
-.form-input {
-  background: var(--surface);
-  border: none;
-  color: var(--text);
-  font-family: var(--sans);
-  font-size: 0.92rem;
-  font-weight: 300;
-  padding: 0.3rem 1rem 0.7rem;
-  outline: none;
-}
-.form-input::placeholder { color: var(--border); }
-
-.form-submit {
-  grid-column: span 2;
-  padding: 1rem;
-  background: var(--accent);
-  color: var(--white);
-  font-family: var(--sans);
-  font-size: 0.82rem;
-  font-weight: 500;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  border: none;
-  cursor: pointer;
-  transition: background 0.3s;
-}
-.form-submit:hover { background: var(--accent-hover); }
 
 /* ═══════════════════════════════════════
    STICKY MOBILE CTA
@@ -1802,9 +1759,6 @@ footer a:hover { color: var(--accent); }
     padding: 1rem 0;
   }
 
-  .kontakt-form { grid-template-columns: 1fr; }
-  .form-submit { grid-column: span 1; }
-
   .sticky-cta { display: flex; }
 
   footer { padding-bottom: 5rem; }
@@ -1873,10 +1827,15 @@ footer a:hover { color: var(--accent); }
     <div class="hero-copy">
       <p class="hero-kicker reveal">Webentwicklung für Unternehmen</p>
       <h1 class="hero-display reveal">
-        <span class="hero-display-line">Ihr Unternehmen verdient einen professionellen</span>
-        <span class="hero-display-line"><em class="hero-display-italic">Online-Auftritt.</em></span>
+        <span class="hero-display-line">Ihr Unternehmen verdient einen professionellen <em class="hero-display-italic">Online-Auftritt.</em></span>
       </h1>
       <p class="hero-lead reveal">Ich entwickle Webseiten für Unternehmen in Frankfurt und deutschlandweit — nicht aus dem Baukasten, sondern mit Sorgfalt gestaltet und technisch sauber umgesetzt, damit Sie online überzeugen.</p>
+      <div class="hero-facts reveal" aria-label="Kurzinfo Webbrüder">
+        <p><strong>Wer:</strong> Webbrüder — Marke der Morawe Ventures GbR.</p>
+        <p><strong>Was:</strong> Webdesign, Webentwicklung, SEO und GEO (Sichtbarkeit in KI-Antworten) für Unternehmen in Deutschland.</p>
+        <p><strong>Wo:</strong> Sitz Schmitten (Hessen); Projekte u. a. Frankfurt und deutschlandweit.</p>
+        <p><strong>Für wen:</strong> Gastronomie, Handwerk, Gesundheitsberufe, Kanzleien und Dienstleister.</p>
+      </div>
       <div class="hero-ctas reveal">
         <a href="#kontakt" class="btn btn-primary">Projekt besprechen</a>
         <a href="#projekte" class="btn btn-outline">Portfolio ansehen</a>
@@ -1936,7 +1895,7 @@ footer a:hover { color: var(--accent); }
         <div class="eyebrow reveal">Portfolio</div>
         <h2 class="heading-lg reveal">Arbeiten, die für sich sprechen.</h2>
       </div>
-      <p class="text-body reveal">Live im Netz: echte Screenshots — Gastro, Plattform, Pflege &amp; Handwerk. Details und weitere Referenzen zeige ich gern persönlich.</p>
+      <p class="text-body reveal">Hier sehen Sie <strong>referenzierte Live-Websites</strong> aus Gastronomie, Plattform, Pflege und Handwerk — so, wie sie online erreichbar sind. Details und weitere Referenzen zeige ich gern persönlich.</p>
     </div>
 
     <div class="portfolio-grid">
@@ -2061,9 +2020,10 @@ footer a:hover { color: var(--accent); }
   <div class="container">
     <div class="branchen-header">
       <div class="eyebrow reveal">Branchen</div>
-      <h2 class="heading-lg reveal">Webseiten für Ihre Branche:<br>Gastronomie bis Kanzlei</h2>
+      <h2 class="heading-lg reveal">Webseiten für Ihre Branche — von Gastronomie bis Kanzlei</h2>
     </div>
-    <p class="text-body branchen-lead reveal">Ob <strong>Webseite Restaurant</strong>, Handwerksbetrieb, Praxis oder Kanzlei: Jede Branche hat andere Erwartungen online. Ich setze das in eine strukturierte, suchmaschinenfreundliche Website um — mit klaren Texten für Besucher und für KI-Übersichten (GEO). Wählen Sie eine Kachel für Stimmung und Fokus.</p>
+    <p class="text-body branchen-lead reveal">Ob <strong>Webseite Restaurant</strong>, Handwerksbetrieb, Praxis oder Kanzlei: online erwarten Nutzer jeweils andere Orientierung. Ich setze Ihr Angebot in eine strukturierte, suchmaschinenfreundliche Website um — mit klaren Texten für Besucher und zugleich mit der Tiefe, die KI-Übersichten und Assistenten (GEO) sinnvoll nutzen können.</p>
+    <p class="text-body reveal" style="margin-top:0.85rem">Für Restaurants und Gastro: <a href="gastronomie-webseite.html">Webseite für Gastronomie erstellen lassen</a> — Speisekarte, Reservierung und lokale Sichtbarkeit.</p>
 
     <div class="branchen-showcase reveal" id="branchenShowcase">
       <div class="branchen-grid" id="branchenGrid" role="group" aria-label="Branchen wählen">
@@ -2107,8 +2067,8 @@ footer a:hover { color: var(--accent); }
   <div class="container">
     <div class="leistungen-header">
       <div class="eyebrow reveal">Was Sie bekommen</div>
-      <h2 class="heading-lg reveal">Individuelle Website statt Template:<br><em>Ihre</em> Webseite, klar strukturiert</h2>
-      <p class="text-body reveal" style="margin-top:1rem">Jede Website wird individuell entwickelt — mit einer klaren Struktur, die zu Ihrem Unternehmen passt.</p>
+      <h2 class="heading-lg reveal">Individuelle Website statt Template — <em>Ihre</em> Webseite, klar strukturiert</h2>
+      <p class="text-body reveal" style="margin-top:1rem">Dieser Abschnitt beschreibt den <strong>Lieferumfang</strong>: individuelles Design, saubere Technik und eine Suchmaschinen-Grundlage — keine Baukasten-Vorlage, sondern Struktur, die zu Ihrem Unternehmen passt.</p>
     </div>
 
     <div class="leistungen-grid">
@@ -2152,8 +2112,8 @@ footer a:hover { color: var(--accent); }
   <div class="container">
     <div class="sichtbarkeit-header">
       <div class="eyebrow reveal">Sichtbarkeit &amp; Inhalte</div>
-      <h2 class="heading-lg reveal">SEO, GEO (KI-Suche) &amp; Bilder —<br>passend zu Ihrer Website</h2>
-      <p class="text-body reveal" style="margin-top:1rem">Die Website ist der Mittelpunkt. Darum herum sorge ich dafür, dass Sie bei Google gefunden werden, in KI-Antworten vorkommen können — und visuell überzeugen.</p>
+      <h2 class="heading-lg reveal">SEO, GEO (KI-Suche) &amp; Bilder — passend zu Ihrer Website</h2>
+      <p class="text-body reveal" style="margin-top:1rem">Die Website bleibt der Mittelpunkt; hier geht es um <strong>Sichtbarkeit drumherum</strong>: Auffindbarkeit bei Google, sinnvolle Darstellung in KI-Antworten (GEO) und Bilder, die zur Marke passen.</p>
     </div>
     <div class="sichtbarkeit-grid">
       <div class="sichtbarkeit-card reveal">
@@ -2181,8 +2141,8 @@ footer a:hover { color: var(--accent); }
   <div class="container">
     <div class="prozess-header">
       <div class="eyebrow reveal">So arbeite ich</div>
-      <h2 class="heading-lg reveal">Ablauf: vom Erstgespräch<br>zur live geschalteten Webseite</h2>
-      <p class="text-body reveal" style="margin-top:1rem">Ein klarer Ablauf, bei dem Sie jederzeit wissen, wo wir stehen.</p>
+      <h2 class="heading-lg reveal">Ablauf: vom Erstgespräch zur live geschalteten Webseite</h2>
+      <p class="text-body reveal" style="margin-top:1rem">So läuft ein typisches Projekt von der Anfrage bis zum Livegang — in klaren Schritten, damit Sie jederzeit wissen, wo wir stehen.</p>
     </div>
 
     <div class="prozess-grid">
@@ -2224,7 +2184,7 @@ footer a:hover { color: var(--accent); }
       </figure>
       <div class="ueber-content">
         <div class="eyebrow reveal">Webbrüder</div>
-        <h2 class="heading-lg reveal">Webentwicklung Frankfurt:<br>direkt &amp; persönlich — <em>ohne Umwege</em></h2>
+        <h2 class="heading-lg reveal">Webentwicklung Frankfurt — direkt &amp; persönlich, <em>ohne Umwege</em></h2>
         <p class="ueber-lead reveal"><strong>Webbrüder</strong> — Webentwicklung aus Frankfurt: Websites für Unternehmen, die online genauso überzeugen wollen wie vor Ort. Über 40 Projekte, feste Absprachen, ehrliche Einschätzungen. Ihr Ansprechpartner: Todd Morawe.</p>
 
         <div class="ueber-steps">
@@ -2256,7 +2216,7 @@ footer a:hover { color: var(--accent); }
   <div class="container">
     <div class="faq-header">
       <div class="eyebrow reveal">Häufige Fragen</div>
-      <h2 class="heading-lg reveal">FAQ: Webseiten, SEO<br>&amp; GEO (KI-Suche)</h2>
+      <h2 class="heading-lg reveal">FAQ: Webseiten, SEO &amp; GEO (KI-Suche)</h2>
     </div>
 
     <div class="faq-list">
@@ -2339,8 +2299,8 @@ footer a:hover { color: var(--accent); }
   <div class="container">
     <div class="kontakt-inner">
       <div class="eyebrow reveal">Projekt starten</div>
-      <h2 class="heading-lg reveal">Webseite anfragen:<br>unverbindlich Kontakt aufnehmen</h2>
-      <p class="kontakt-sub reveal">Unverbindlich, persönlich, unkompliziert. Erzählen Sie mir von Ihrem Unternehmen — ich sage Ihnen ehrlich, was möglich ist.</p>
+      <h2 class="heading-lg reveal">Webseite anfragen — unverbindlich Kontakt aufnehmen</h2>
+      <p class="kontakt-sub reveal">Unverbindlich und persönlich: WhatsApp, Telefon oder E-Mail — direkt zum Ansprechpartner, ohne Kontaktformular. Erzählen Sie von Ihrem Unternehmen; ich sage ehrlich, was möglich ist.</p>
 
       <div class="kontakt-ctas reveal">
         <a href="https://wa.me/4969123456789?text=Hallo%2C%20ich%20interessiere%20mich%20f%C3%BCr%20eine%20Website%20%28Webbr%C3%BCder%29." class="kontakt-btn kontakt-wa">
@@ -2355,20 +2315,6 @@ footer a:hover { color: var(--accent); }
           <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
           E-Mail senden
         </a>
-      </div>
-
-      <div class="kontakt-divider reveal"><span>oder Rückruf anfordern</span></div>
-
-      <div class="kontakt-form reveal">
-        <div class="form-group">
-          <label class="form-label">Ihr Name</label>
-          <input class="form-input" type="text" placeholder="Max Mustermann">
-        </div>
-        <div class="form-group">
-          <label class="form-label">Telefonnummer</label>
-          <input class="form-input" type="tel" placeholder="+49 69 123 456 789">
-        </div>
-        <button class="form-submit" onclick="handleSubmit(this)">Rückruf anfordern — kostenlos & unverbindlich</button>
       </div>
     </div>
   </div>
@@ -2396,7 +2342,7 @@ footer a:hover { color: var(--accent); }
 <footer>
   <div class="container footer-inner">
     <span>© 2026 Webbrüder · Frankfurt am Main</span>
-    <span><a href="impressum.html">Impressum</a> · <a href="datenschutz.html">Datenschutz</a></span>
+    <span><a href="gastronomie-webseite.html">Gastronomie</a> · <a href="impressum.html">Impressum</a> · <a href="datenschutz.html">Datenschutz</a></span>
   </div>
 </footer>
 
@@ -2531,13 +2477,6 @@ document.querySelectorAll('.faq-question').forEach(function(btn) {
     }
   });
 });
-
-/* ── Form Submit ── */
-function handleSubmit(btn) {
-  btn.textContent = 'Gesendet — ich melde mich bei Ihnen';
-  btn.style.background = '#3A7350';
-  btn.disabled = true;
-}
 
 /* ── Branchen: 5 feste Karten, nur Bild + Hervorhebung wechseln ── */
 (function() {
