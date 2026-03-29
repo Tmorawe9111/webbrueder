@@ -1,0 +1,18 @@
+# https://webbrüder.de/
+User-agent: *
+Allow: /
+
+# KI- und Forschungs-Crawler (optional sichtbar halten — Anpassung nach Bedarf)
+User-agent: GPTBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+Sitemap: https://webbrüder.de/sitemap.xml
