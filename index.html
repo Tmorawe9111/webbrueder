@@ -223,6 +223,14 @@
       "mainEntity": [
         {
           "@type": "Question",
+          "name": "Kurzinfo zu Webbrüder: Wer, Was, Wo, Für wen?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Wer: Webbrüder — Marke der Morawe Ventures GbR. Was: Webdesign, Webentwicklung, SEO und GEO (Sichtbarkeit in KI-Antworten) für Unternehmen in Deutschland. Wo: Sitz Schmitten (Hessen); Projekte u. a. Frankfurt und deutschlandweit. Für wen: Gastronomie, Handwerk, Gesundheitsberufe, Kanzleien und Dienstleister."
+          }
+        },
+        {
+          "@type": "Question",
           "name": "Wie individuell ist die Website wirklich?",
           "acceptedAnswer": {
             "@type": "Answer",
@@ -696,33 +704,8 @@ button { font-family: inherit; cursor: pointer; }
   font-weight: 300;
   line-height: 1.75;
   color: var(--text-muted);
-  margin: 0 0 1.35rem;
+  margin: 0 0 2.25rem;
   max-width: 36rem;
-}
-
-.hero-facts {
-  margin: 0 0 1.75rem;
-  max-width: 38rem;
-  padding: 1rem 1.15rem;
-  background: rgba(45, 90, 61, 0.06);
-  border-left: 3px solid var(--accent);
-  border-radius: 0 8px 8px 0;
-  font-size: 0.88rem;
-  line-height: 1.65;
-  color: var(--text-muted);
-}
-
-.hero-facts p {
-  margin: 0 0 0.5rem;
-}
-
-.hero-facts p:last-child {
-  margin-bottom: 0;
-}
-
-.hero-facts strong {
-  color: var(--text);
-  font-weight: 600;
 }
 
 .hero-ctas {
@@ -1489,6 +1472,30 @@ a.portfolio-browser-wrap:focus-visible {
   color: var(--text-muted);
 }
 
+.faq-kurzinfo {
+  margin: 0;
+  padding: 1rem 1.15rem;
+  background: rgba(45, 90, 61, 0.06);
+  border-left: 3px solid var(--accent);
+  border-radius: 0 8px 8px 0;
+  font-size: 0.9rem;
+  line-height: 1.65;
+  color: var(--text-muted);
+}
+
+.faq-kurzinfo p {
+  margin: 0 0 0.5rem;
+}
+
+.faq-kurzinfo p:last-child {
+  margin-bottom: 0;
+}
+
+.faq-kurzinfo strong {
+  color: var(--text);
+  font-weight: 600;
+}
+
 /* ═══════════════════════════════════════
    KONTAKT
    ═══════════════════════════════════════ */
@@ -1830,12 +1837,6 @@ footer a:hover { color: var(--accent); }
         <span class="hero-display-line">Ihr Unternehmen verdient einen professionellen <em class="hero-display-italic">Online-Auftritt.</em></span>
       </h1>
       <p class="hero-lead reveal">Ich entwickle Webseiten für Unternehmen in Frankfurt und deutschlandweit — nicht aus dem Baukasten, sondern mit Sorgfalt gestaltet und technisch sauber umgesetzt, damit Sie online überzeugen.</p>
-      <div class="hero-facts reveal" aria-label="Kurzinfo Webbrüder">
-        <p><strong>Wer:</strong> Webbrüder — Marke der Morawe Ventures GbR.</p>
-        <p><strong>Was:</strong> Webdesign, Webentwicklung, SEO und GEO (Sichtbarkeit in KI-Antworten) für Unternehmen in Deutschland.</p>
-        <p><strong>Wo:</strong> Sitz Schmitten (Hessen); Projekte u. a. Frankfurt und deutschlandweit.</p>
-        <p><strong>Für wen:</strong> Gastronomie, Handwerk, Gesundheitsberufe, Kanzleien und Dienstleister.</p>
-      </div>
       <div class="hero-ctas reveal">
         <a href="#kontakt" class="btn btn-primary">Projekt besprechen</a>
         <a href="#projekte" class="btn btn-outline">Portfolio ansehen</a>
@@ -2220,6 +2221,23 @@ footer a:hover { color: var(--accent); }
     </div>
 
     <div class="faq-list">
+      <div class="faq-item reveal">
+        <button class="faq-question" aria-expanded="false">
+          Kurzinfo zu Webbrüder: Wer, Was, Wo, Für wen?
+          <span class="faq-icon"></span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            <div class="faq-kurzinfo">
+              <p><strong>Wer:</strong> Webbrüder — Marke der Morawe Ventures GbR.</p>
+              <p><strong>Was:</strong> Webdesign, Webentwicklung, SEO und GEO (Sichtbarkeit in KI-Antworten) für Unternehmen in Deutschland.</p>
+              <p><strong>Wo:</strong> Sitz Schmitten (Hessen); Projekte u. a. Frankfurt und deutschlandweit.</p>
+              <p><strong>Für wen:</strong> Gastronomie, Handwerk, Gesundheitsberufe, Kanzleien und Dienstleister.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <div class="faq-item reveal">
         <button class="faq-question" aria-expanded="false">
           Wie individuell ist die Website wirklich?
