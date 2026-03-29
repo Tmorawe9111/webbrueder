@@ -629,41 +629,64 @@ button { font-family: inherit; cursor: pointer; }
   flex-shrink: 0;
 }
 
-/* Portfolio: nur Bild, kein „Browser“-Kasten */
-a.portfolio-shot {
+/* Portfolio: Browser-Mockup wie Referenz (Traffic-Lights + 16:9 Viewport) */
+a.portfolio-browser-wrap {
   display: block;
   color: inherit;
+  text-decoration: none;
+  line-height: 0;
 }
-.portfolio-shot {
-  border-radius: 6px;
+a.portfolio-browser-wrap:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
+  border-radius: 16px;
+}
+.portfolio-browser-wrap:hover .portfolio-browser {
+  box-shadow:
+    0 1px 0 rgba(0, 0, 0, 0.05),
+    0 32px 80px rgba(0, 0, 0, 0.12);
+}
+.portfolio-browser {
+  border-radius: 14px;
   overflow: hidden;
-  position: relative;
-  box-shadow: 0 10px 32px rgba(0,0,0,0.07);
+  background: var(--white);
+  box-shadow:
+    0 1px 0 rgba(0, 0, 0, 0.04),
+    0 28px 70px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  transition: box-shadow 0.35s ease;
 }
-.portfolio-shot img {
+.portfolio-browser-bar {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 11px 14px;
+  background: linear-gradient(180deg, #f3f1ed 0%, #ebe8e2 100%);
+  border-bottom: 1px solid var(--border);
+}
+.portfolio-browser-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.portfolio-browser-dot:nth-child(1) { background: #e86c60; }
+.portfolio-browser-dot:nth-child(2) { background: #e8c048; }
+.portfolio-browser-dot:nth-child(3) { background: #6bc56b; }
+.portfolio-browser-viewport img {
   width: 100%;
   aspect-ratio: 16 / 9;
+  height: auto;
   object-fit: cover;
   object-position: center 12%;
   display: block;
 }
-.portfolio-shot--luolou img { object-position: center 6%; }
-.portfolio-shot--delifiona img { object-position: center top; }
-.portfolio-shot--bevis img { object-position: center top; }
-.portfolio-shot--baypw img { object-position: center 5%; }
-.portfolio-shot--gaerte img { object-position: center 28%; }
-.portfolio-shot--sample img { object-position: center center; }
-.portfolio-shot-cap {
-  position: absolute;
-  left: 0; right: 0; bottom: 0;
-  padding: 0.4rem 0.75rem 0.5rem;
-  font-size: 0.62rem;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: rgba(255,255,255,0.95);
-  background: linear-gradient(to top, rgba(26,26,26,0.72), transparent);
-}
+.portfolio-browser-wrap.portfolio-shot--luolou .portfolio-browser-viewport img { object-position: center 6%; }
+.portfolio-browser-wrap.portfolio-shot--delifiona .portfolio-browser-viewport img { object-position: center top; }
+.portfolio-browser-wrap.portfolio-shot--bevis .portfolio-browser-viewport img { object-position: center top; }
+.portfolio-browser-wrap.portfolio-shot--baypw .portfolio-browser-viewport img { object-position: center 5%; }
+.portfolio-browser-wrap.portfolio-shot--gaerte .portfolio-browser-viewport img { object-position: center 28%; }
+.portfolio-browser-wrap.portfolio-shot--sample .portfolio-browser-viewport img { object-position: center center; }
 .portfolio-note {
   font-size: 0.78rem;
   font-weight: 300;
@@ -742,8 +765,8 @@ a.portfolio-shot {
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
-  margin-bottom: 2.25rem;
-  gap: 1.5rem;
+  margin-bottom: 3rem;
+  gap: 1.75rem;
 }
 
 .portfolio-header .text-body {
@@ -754,13 +777,13 @@ a.portfolio-shot {
 .portfolio-grid {
   display: flex;
   flex-direction: column;
-  gap: 2.25rem;
+  gap: clamp(3rem, 6vw, 4.5rem);
 }
 
 .portfolio-item {
   display: grid;
   grid-template-columns: 1.2fr 1fr;
-  gap: 1.75rem;
+  gap: clamp(1.75rem, 4vw, 2.75rem);
   align-items: center;
 }
 
@@ -807,9 +830,9 @@ a.portfolio-shot {
   font-weight: 500;
   color: var(--accent);
   background: var(--accent-light);
-  padding: 0.32rem 0.75rem;
-  border-radius: 3px;
-  margin-bottom: 0.65rem;
+  padding: 0.4rem 1rem;
+  border-radius: 999px;
+  margin-bottom: 0.75rem;
 }
 
 .portfolio-link {
@@ -1810,81 +1833,121 @@ footer a:hover { color: var(--accent); }
   <div class="container">
     <div class="portfolio-header">
       <div>
-        <div class="eyebrow reveal">Ausgewählte Projekte</div>
-        <h2 class="heading-lg reveal">Webdesign-Referenzen:<br>zwei Gastro-Projekte, Plattform, Pflege &amp; Handwerk</h2>
+        <div class="eyebrow reveal">Portfolio</div>
+        <h2 class="heading-lg reveal">Arbeiten, die für sich sprechen.</h2>
       </div>
-      <p class="text-body reveal">Live im Netz: echte Screenshots der Websites — <strong>Luolou</strong> &amp; <strong>Deli Fiona</strong> (Gastro), <strong>Gaerte SHK</strong> (Handwerk Hamburg), <strong>BeVisiblle</strong>, <strong>Bayerisches Pflegewerk</strong>. Details zeige ich gern persönlich.</p>
+      <p class="text-body reveal">Live im Netz: echte Screenshots — Gastro, Plattform, Pflege &amp; Handwerk. Details und weitere Referenzen zeige ich gern persönlich.</p>
     </div>
 
     <div class="portfolio-grid">
 
       <div class="portfolio-item reveal">
-        <a href="https://luolou.de" target="_blank" rel="noopener noreferrer" class="portfolio-shot portfolio-shot--luolou">
-          <img src="assets/previews/luolou.png" alt="Screenshot luolou.de — Restaurant Luolou, Kronberg" width="1600" height="900" loading="lazy" decoding="async">
-          <span class="portfolio-shot-cap">luolou.de · Live</span>
+        <a href="https://luolou.de" target="_blank" rel="noopener noreferrer" class="portfolio-browser-wrap portfolio-shot--luolou">
+          <div class="portfolio-browser">
+            <div class="portfolio-browser-bar" aria-hidden="true">
+              <span class="portfolio-browser-dot"></span>
+              <span class="portfolio-browser-dot"></span>
+              <span class="portfolio-browser-dot"></span>
+            </div>
+            <div class="portfolio-browser-viewport">
+              <img src="assets/previews/luolou.png" alt="Screenshot luolou.de — Restaurant Luolou, Kronberg" width="1600" height="900" loading="lazy" decoding="async">
+            </div>
+          </div>
         </a>
         <div class="portfolio-info">
           <div class="portfolio-tag">Gastronomie</div>
           <h3 class="portfolio-title">Luolou — Restaurant, Kronberg</h3>
           <p class="portfolio-desc">Moderner Online-Auftritt für ein französisch-mediterranes Restaurant. Tischreservierung, Speisekarte und Atmosphäre — digital überzeugend umgesetzt.</p>
           <div class="portfolio-result">+40 % Online-Reservierungen</div>
-          <a href="https://luolou.de" target="_blank" rel="noopener noreferrer" class="portfolio-link">Live-Website öffnen →</a>
+          <a href="https://luolou.de" target="_blank" rel="noopener noreferrer" class="portfolio-link">Projekt ansehen →</a>
         </div>
       </div>
 
       <div class="portfolio-item reveal">
-        <a href="https://www.delifiona.de/" target="_blank" rel="noopener noreferrer" class="portfolio-shot portfolio-shot--delifiona">
-          <img src="assets/previews/delifiona.png" alt="Screenshot delifiona.de — Deli Fiona, Restaurant &amp; Vinothek Kronberg" width="1600" height="900" loading="lazy" decoding="async">
-          <span class="portfolio-shot-cap">delifiona.de · Live</span>
+        <a href="https://www.delifiona.de/" target="_blank" rel="noopener noreferrer" class="portfolio-browser-wrap portfolio-shot--delifiona">
+          <div class="portfolio-browser">
+            <div class="portfolio-browser-bar" aria-hidden="true">
+              <span class="portfolio-browser-dot"></span>
+              <span class="portfolio-browser-dot"></span>
+              <span class="portfolio-browser-dot"></span>
+            </div>
+            <div class="portfolio-browser-viewport">
+              <img src="assets/previews/delifiona.png" alt="Screenshot delifiona.de — Deli Fiona, Restaurant &amp; Vinothek Kronberg" width="1600" height="900" loading="lazy" decoding="async">
+            </div>
+          </div>
         </a>
         <div class="portfolio-info">
           <div class="portfolio-tag">Gastronomie</div>
           <h3 class="portfolio-title">Deli Fiona — Restaurant &amp; Vinothek, Kronberg</h3>
           <p class="portfolio-desc">Italienisches Restaurant mit Pinsa, Vinothek und klarer Gastronomie-Story online — Stimmung, Speisekarte und Orientierung für Gäste.</p>
           <div class="portfolio-result">Live-Website · Reservierung &amp; Speisekarte</div>
-          <a href="https://www.delifiona.de/" target="_blank" rel="noopener noreferrer" class="portfolio-link">Live-Website öffnen →</a>
+          <a href="https://www.delifiona.de/" target="_blank" rel="noopener noreferrer" class="portfolio-link">Projekt ansehen →</a>
         </div>
       </div>
 
       <div class="portfolio-item reveal">
-        <a href="https://bevisiblle.de" target="_blank" rel="noopener noreferrer" class="portfolio-shot portfolio-shot--bevis">
-          <img src="assets/previews/bevisiblle.png" alt="Screenshot bevisiblle.de — Job-Netzwerk" width="1600" height="900" loading="lazy" decoding="async">
-          <span class="portfolio-shot-cap">bevisiblle.de · Live</span>
+        <a href="https://bevisiblle.de" target="_blank" rel="noopener noreferrer" class="portfolio-browser-wrap portfolio-shot--bevis">
+          <div class="portfolio-browser">
+            <div class="portfolio-browser-bar" aria-hidden="true">
+              <span class="portfolio-browser-dot"></span>
+              <span class="portfolio-browser-dot"></span>
+              <span class="portfolio-browser-dot"></span>
+            </div>
+            <div class="portfolio-browser-viewport">
+              <img src="assets/previews/bevisiblle.png" alt="Screenshot bevisiblle.de — Job-Netzwerk" width="1600" height="900" loading="lazy" decoding="async">
+            </div>
+          </div>
         </a>
         <div class="portfolio-info">
-          <div class="portfolio-tag">Plattform</div>
+          <div class="portfolio-tag">Recruiting</div>
           <h3 class="portfolio-title">BeVisiblle — Job-Netzwerk, Frankfurt</h3>
           <p class="portfolio-desc">Digitales Netzwerk für Fachkräfte ohne Studium. Konzept, Design und technische Umsetzung einer kompletten Web-Plattform.</p>
           <div class="portfolio-result">5.000+ registrierte Nutzer</div>
-          <a href="https://bevisiblle.de" target="_blank" rel="noopener noreferrer" class="portfolio-link">Live-Website öffnen →</a>
+          <a href="https://bevisiblle.de" target="_blank" rel="noopener noreferrer" class="portfolio-link">Projekt ansehen →</a>
         </div>
       </div>
 
       <div class="portfolio-item reveal">
-        <a href="https://baypw.de" target="_blank" rel="noopener noreferrer" class="portfolio-shot portfolio-shot--baypw">
-          <img src="assets/previews/baypw.png" alt="Screenshot baypw.de — Bayerisches Pflegewerk" width="1600" height="900" loading="lazy" decoding="async">
-          <span class="portfolio-shot-cap">baypw.de · Live</span>
+        <a href="https://baypw.de" target="_blank" rel="noopener noreferrer" class="portfolio-browser-wrap portfolio-shot--baypw">
+          <div class="portfolio-browser">
+            <div class="portfolio-browser-bar" aria-hidden="true">
+              <span class="portfolio-browser-dot"></span>
+              <span class="portfolio-browser-dot"></span>
+              <span class="portfolio-browser-dot"></span>
+            </div>
+            <div class="portfolio-browser-viewport">
+              <img src="assets/previews/baypw.png" alt="Screenshot baypw.de — Bayerisches Pflegewerk" width="1600" height="900" loading="lazy" decoding="async">
+            </div>
+          </div>
         </a>
         <div class="portfolio-info">
           <div class="portfolio-tag">Gesundheit</div>
           <h3 class="portfolio-title">Bayerisches Pflegewerk — Pflege, Tegernsee</h3>
           <p class="portfolio-desc">Vertrauenswürdiger Online-Auftritt für einen ambulanten Pflegedienst. Klare Struktur, die Patienten und Angehörige überzeugt.</p>
           <div class="portfolio-result">Seite 1 bei Google für „Pflege Tegernsee"</div>
-          <a href="https://baypw.de" target="_blank" rel="noopener noreferrer" class="portfolio-link">Live-Website öffnen →</a>
+          <a href="https://baypw.de" target="_blank" rel="noopener noreferrer" class="portfolio-link">Projekt ansehen →</a>
         </div>
       </div>
 
       <div class="portfolio-item reveal">
-        <a href="https://www.gaerte-shk.de/" target="_blank" rel="noopener noreferrer" class="portfolio-shot portfolio-shot--gaerte">
-          <img src="assets/previews/gaerte-shk.png" alt="Screenshot gaerte-shk.de — Gaerte GmbH Sanitär &amp; Heizung, Hamburg" width="1600" height="900" loading="lazy" decoding="async">
-          <span class="portfolio-shot-cap">gaerte-shk.de · Live</span>
+        <a href="https://www.gaerte-shk.de/" target="_blank" rel="noopener noreferrer" class="portfolio-browser-wrap portfolio-shot--gaerte">
+          <div class="portfolio-browser">
+            <div class="portfolio-browser-bar" aria-hidden="true">
+              <span class="portfolio-browser-dot"></span>
+              <span class="portfolio-browser-dot"></span>
+              <span class="portfolio-browser-dot"></span>
+            </div>
+            <div class="portfolio-browser-viewport">
+              <img src="assets/previews/gaerte-shk.png" alt="Screenshot gaerte-shk.de — Gaerte GmbH Sanitär &amp; Heizung, Hamburg" width="1600" height="900" loading="lazy" decoding="async">
+            </div>
+          </div>
         </a>
         <div class="portfolio-info">
           <div class="portfolio-tag">Handwerk</div>
           <h3 class="portfolio-title">Gaerte GmbH — Sanitär, Gas &amp; Heizung, Hamburg</h3>
           <p class="portfolio-desc">Handwerk mit Präzision: klarer Auftritt für SHK &amp; Klempnerei — Leistungen, Team und direkte Kontaktmöglichkeiten, wie Kund:innen es von einem Betrieb vor Ort erwarten.</p>
           <div class="portfolio-result">Live-Referenz · Handwerk Hamburg</div>
-          <a href="https://www.gaerte-shk.de/" target="_blank" rel="noopener noreferrer" class="portfolio-link">Live-Website öffnen →</a>
+          <a href="https://www.gaerte-shk.de/" target="_blank" rel="noopener noreferrer" class="portfolio-link">Projekt ansehen →</a>
         </div>
       </div>
 
