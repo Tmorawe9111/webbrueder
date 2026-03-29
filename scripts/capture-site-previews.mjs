@@ -27,21 +27,26 @@ const SELECTORS = [
   'button.fc-button.fc-cta-consent',
   '[data-testid="cookie-accept-all"]',
   'button:has-text("Alle akzeptieren")',
+  'button:has-text("Alle zulassen")',
   'button:has-text("Alle Cookies akzeptieren")',
   'button:has-text("Alles akzeptieren")',
+  'button:has-text("Auswahl erlauben")',
   'button:has-text("Akzeptieren")',
   'button:has-text("Zustimmen")',
   'button:has-text("Einverstanden")',
   'button:has-text("Verstanden")',
   'button:has-text("OK")',
   'role=button[name="Alle akzeptieren"]',
+  'role=button[name="Alle zulassen"]',
   'role=button[name="Akzeptieren"]',
   'text=Alle akzeptieren',
+  'text=Alle zulassen',
   'text=Akzeptieren',
 ];
 
+/** Inkl. Cookiebot „Alle zulassen“ / „Auswahl erlauben“ */
 const ACCEPT_RE =
-  /(alle(\s+cookies?)?\s+)?akzeptieren|alles\s+akzeptieren|zustimmen|einverstanden|^verstanden$|^ok$|accept(\s+all)?|allow(\s+all)?|ich\s+stimme(\s+zu)?/i;
+  /alle\s+zulassen|auswahl\s+erlauben|(alle(\s+cookies?)?\s+)?akzeptieren|alles\s+akzeptieren|zustimmen|einverstanden|^verstanden$|^ok$|accept(\s+all)?|allow(\s+all)?|ich\s+stimme(\s+zu)?/i;
 
 async function tryClickAll(page) {
   for (const sel of SELECTORS) {
@@ -56,30 +61,26 @@ async function tryClickAll(page) {
     }
   }
   try {
-    await page.evaluate(() => {
+    await page.evaluate((src, fl) => {
+      const re = new RegExp(src, fl);
       const nodes = document.querySelectorAll(
         'button, a[role="button"], a.button, input[type="submit"], [role="button"]'
       );
       for (const el of nodes) {
         const t = (el.textContent || el.value || '').replace(/\s+/g, ' ').trim();
         if (!t || t.length > 120) continue;
-        if (
-          /(alle(\s+cookies?)?\s+)?akzeptieren|alles\s+akzeptieren|zustimmen|einverstanden|^verstanden$|^ok$|accept(\s+all)?|allow(\s+all)?|ich\s+stimme(\s+zu)?/i.test(
-            t
-          )
-        ) {
+        if (re.test(t)) {
           el.click();
           return;
         }
       }
-    });
+    }, ACCEPT_RE.source, ACCEPT_RE.flags);
   } catch {
     /* */
   }
   try {
-    await page.evaluate(() => {
-      const re =
-        /(alle(\s+cookies?)?\s+)?akzeptieren|alles\s+akzeptieren|zustimmen|einverstanden|^verstanden$|^ok$|accept(\s+all)?|allow(\s+all)?|ich\s+stimme(\s+zu)?/i;
+    await page.evaluate((src, fl) => {
+      const re = new RegExp(src, fl);
       function walk(root) {
         const candidates = root.querySelectorAll(
           'button, a[role="button"], [role="button"], input[type="submit"], a.button'
@@ -98,7 +99,7 @@ async function tryClickAll(page) {
         return false;
       }
       return walk(document);
-    });
+    }, ACCEPT_RE.source, ACCEPT_RE.flags);
   } catch {
     /* */
   }
@@ -143,6 +144,30 @@ async function waitForBannerSettled(page, timeoutMs = 10000) {
   }
 }
 
+/** baypw.de: Next.js — Banner erst nach Hydration sichtbar */
+async function clickBaypwConsent(page) {
+  try {
+    const btn = page.getByRole('button', { name: /^alle akzeptieren$/i });
+    await btn.waitFor({ state: 'visible', timeout: 25000 });
+    await btn.click({ timeout: 8000 });
+    await page.waitForTimeout(1200);
+  } catch {
+    /* */
+  }
+}
+
+/** gaerte-shk.de: Cookiebot mit „Alle zulassen“ */
+async function clickGaerteCookiebotAllowAll(page) {
+  try {
+    const loc = page.locator('#CybotCookiebotDialogBodyLevelButtonLevelOptinAllowAll');
+    await loc.waitFor({ state: 'visible', timeout: 25000 });
+    await loc.click({ timeout: 8000, force: true });
+    await page.waitForTimeout(1500);
+  } catch {
+    /* */
+  }
+}
+
 async function shot(browser, name, url) {
   const context = await browser.newContext({
     viewport: VIEW,
@@ -151,12 +176,35 @@ async function shot(browser, name, url) {
       'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36',
   });
   const page = await context.newPage();
-  await page.goto(url, { waitUntil: 'domcontentloaded', timeout: 90000 });
-  await page.waitForTimeout(1800);
+  await page.goto(url, { waitUntil: 'load', timeout: 90000 });
+
+  const slowCmp = name === 'baypw' || name === 'gaerte-shk';
+  if (slowCmp) {
+    await page.waitForLoadState('networkidle', { timeout: 70000 }).catch(() => {});
+    await page.waitForTimeout(2800);
+  } else {
+    await page.waitForTimeout(1800);
+  }
+
   await dismissCookies(page);
-  await page.waitForTimeout(800);
+  if (name === 'baypw') await clickBaypwConsent(page);
+  if (name === 'gaerte-shk') await clickGaerteCookiebotAllowAll(page);
+  await page.waitForTimeout(600);
   await dismissCookies(page);
-  await waitForBannerSettled(page, 8000);
+  if (name === 'baypw') await clickBaypwConsent(page);
+  if (name === 'gaerte-shk') await clickGaerteCookiebotAllowAll(page);
+  await waitForBannerSettled(page, slowCmp ? 14000 : 8000);
+  if (name === 'baypw') {
+    const still = await page.getByRole('button', { name: /^alle akzeptieren$/i }).isVisible().catch(() => false);
+    if (still) await clickBaypwConsent(page);
+  }
+  if (name === 'gaerte-shk') {
+    const still = await page
+      .locator('#CybotCookiebotDialogBodyLevelButtonLevelOptinAllowAll')
+      .isVisible()
+      .catch(() => false);
+    if (still) await clickGaerteCookiebotAllowAll(page);
+  }
   await page.evaluate(() => window.scrollTo(0, 0));
   await page.waitForTimeout(500);
   const buf = await page.screenshot({ type: 'png' });
