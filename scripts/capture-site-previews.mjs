@@ -1,6 +1,6 @@
 /**
  * Portfolio-Screenshots: Cookie-Banner zuverlässig schließen, dann Startseite oben.
- * Viewport exakt 16:10 wie .portfolio-shot img (aspect-ratio 16/10).
+ * Viewport exakt 16:9 wie .portfolio-shot img (aspect-ratio 16/9).
  * node scripts/capture-site-previews.mjs
  */
 import { chromium } from 'playwright';
@@ -12,8 +12,8 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 const root = join(__dirname, '..');
 const outDir = join(root, 'assets', 'previews');
 
-/** Exakt 16:10 — passt zu object-fit cover im CSS ohne Zusatzbeschnitt */
-const VIEW = { width: 1280, height: 800 };
+/** Exakt 16:9 — passt zu object-fit cover im CSS ohne Zusatzbeschnitt */
+const VIEW = { width: 1600, height: 900 };
 
 const SELECTORS = [
   '#onetrust-accept-btn-handler',
