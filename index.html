@@ -260,8 +260,6 @@ button { font-family: inherit; cursor: pointer; }
   font-weight: 400;
   line-height: 1.2;
   color: var(--text);
-  max-width: min(52rem, 100%);
-  letter-spacing: -0.02em;
 }
 
 .heading-md {
@@ -745,22 +743,11 @@ a.portfolio-shot {
   justify-content: space-between;
   align-items: flex-end;
   margin-bottom: 4rem;
-  gap: clamp(2rem, 5vw, 4rem);
-}
-
-.portfolio-header > div:first-child {
-  flex: 1 1 auto;
-  min-width: 0;
-  max-width: min(56rem, 100%);
-}
-
-.portfolio-header .heading-lg {
-  max-width: none;
+  gap: 2rem;
 }
 
 .portfolio-header .text-body {
-  flex: 0 1 17rem;
-  max-width: 20rem;
+  max-width: 380px;
   text-align: right;
 }
 
@@ -848,7 +835,7 @@ a.portfolio-shot {
 
 .branchen-header {
   text-align: center;
-  max-width: min(52rem, 100%);
+  max-width: 640px;
   margin: 0 auto 1.25rem;
 }
 
@@ -982,7 +969,7 @@ a.portfolio-shot {
 }
 
 .leistungen-header {
-  max-width: min(48rem, 100%);
+  max-width: 600px;
   margin-bottom: 4rem;
 }
 
@@ -1033,7 +1020,7 @@ a.portfolio-shot {
 }
 
 .sichtbarkeit-header {
-  max-width: min(52rem, 100%);
+  max-width: 640px;
   margin: 0 auto 3rem;
   text-align: center;
 }
@@ -1100,7 +1087,7 @@ a.portfolio-shot {
 
 .prozess-header {
   text-align: center;
-  max-width: min(44rem, 100%);
+  max-width: 550px;
   margin: 0 auto 4rem;
 }
 
@@ -1199,7 +1186,7 @@ a.portfolio-shot {
 
 .ueber-content .heading-lg {
   margin-bottom: 0.85rem;
-  max-width: min(36rem, 100%);
+  max-width: 26rem;
 }
 
 .ueber-content .heading-lg em {
@@ -1272,7 +1259,7 @@ a.portfolio-shot {
 
 .faq-header {
   text-align: center;
-  max-width: min(42rem, 100%);
+  max-width: 500px;
   margin: 0 auto 3.5rem;
 }
 
@@ -1358,7 +1345,7 @@ a.portfolio-shot {
 
 .kontakt-inner {
   text-align: center;
-  max-width: min(46rem, 100%);
+  max-width: 640px;
   margin: 0 auto;
 }
 
@@ -1635,12 +1622,7 @@ footer a:hover { color: var(--accent); }
     flex-direction: column;
     align-items: flex-start;
   }
-  .portfolio-header > div:first-child { max-width: 100%; }
-  .portfolio-header .text-body {
-    text-align: left;
-    flex: none;
-    max-width: 100%;
-  }
+  .portfolio-header .text-body { text-align: left; }
 
   .branchen-grid {
     grid-template-columns: 1fr;
@@ -1837,7 +1819,7 @@ footer a:hover { color: var(--accent); }
 
       <div class="portfolio-item reveal">
         <a href="https://luolou.de" target="_blank" rel="noopener noreferrer" class="portfolio-shot portfolio-shot--luolou">
-          <img src="assets/previews/luolou.png" alt="Screenshot luolou.de — Restaurant Luolou, Kronberg" width="1600" height="1000" loading="lazy" decoding="async">
+          <img src="assets/previews/luolou.png" alt="Screenshot luolou.de — Restaurant Luolou, Kronberg" width="1366" height="820" loading="lazy" decoding="async">
           <span class="portfolio-shot-cap">luolou.de · Live</span>
         </a>
         <div class="portfolio-info">
@@ -1851,7 +1833,7 @@ footer a:hover { color: var(--accent); }
 
       <div class="portfolio-item reveal">
         <a href="https://www.delifiona.de/" target="_blank" rel="noopener noreferrer" class="portfolio-shot portfolio-shot--delifiona">
-          <img src="assets/previews/delifiona.png" alt="Screenshot delifiona.de — Deli Fiona, Restaurant &amp; Vinothek Kronberg" width="1600" height="1000" loading="lazy" decoding="async">
+          <img src="assets/previews/delifiona.png" alt="Screenshot delifiona.de — Deli Fiona, Restaurant &amp; Vinothek Kronberg" width="1366" height="820" loading="lazy" decoding="async">
           <span class="portfolio-shot-cap">delifiona.de · Live</span>
         </a>
         <div class="portfolio-info">
@@ -1865,7 +1847,7 @@ footer a:hover { color: var(--accent); }
 
       <div class="portfolio-item reveal">
         <a href="https://bevisiblle.de" target="_blank" rel="noopener noreferrer" class="portfolio-shot portfolio-shot--bevis">
-          <img src="assets/previews/bevisiblle.png" alt="Screenshot bevisiblle.de — Job-Netzwerk" width="1600" height="1000" loading="lazy" decoding="async">
+          <img src="assets/previews/bevisiblle.png" alt="Screenshot bevisiblle.de — Job-Netzwerk" width="1366" height="820" loading="lazy" decoding="async">
           <span class="portfolio-shot-cap">bevisiblle.de · Live</span>
         </a>
         <div class="portfolio-info">
@@ -1879,13 +1861,13 @@ footer a:hover { color: var(--accent); }
 
       <div class="portfolio-item reveal">
         <a href="https://baypw.de" target="_blank" rel="noopener noreferrer" class="portfolio-shot portfolio-shot--baypw">
-          <img src="assets/previews/baypw.png" alt="Screenshot baypw.de — Bayerisches Pflegewerk (nach Cookie-Zustimmung)" width="1600" height="1000" loading="lazy" decoding="async">
+          <img src="assets/previews/baypw.png" alt="Screenshot baypw.de — Bayerisches Pflegewerk" width="1366" height="820" loading="lazy" decoding="async">
           <span class="portfolio-shot-cap">baypw.de · Live</span>
         </a>
         <div class="portfolio-info">
           <div class="portfolio-tag">Gesundheit</div>
           <h3 class="portfolio-title">Bayerisches Pflegewerk — Pflege, Tegernsee</h3>
-          <p class="portfolio-desc">Vertrauenswürdiger Online-Auftritt für einen ambulanten Pflegedienst. Klare Struktur, die Patienten und Angehörige überzeugt. (Screenshot der Startseite nach Cookie-Zustimmung.)</p>
+          <p class="portfolio-desc">Vertrauenswürdiger Online-Auftritt für einen ambulanten Pflegedienst. Klare Struktur, die Patienten und Angehörige überzeugt.</p>
           <div class="portfolio-result">Seite 1 bei Google für „Pflege Tegernsee"</div>
           <a href="https://baypw.de" target="_blank" rel="noopener noreferrer" class="portfolio-link">Live-Website öffnen →</a>
         </div>
@@ -1893,7 +1875,7 @@ footer a:hover { color: var(--accent); }
 
       <div class="portfolio-item reveal">
         <a href="https://www.gaerte-shk.de/" target="_blank" rel="noopener noreferrer" class="portfolio-shot portfolio-shot--gaerte">
-          <img src="assets/previews/gaerte-shk.png" alt="Screenshot gaerte-shk.de — Gaerte GmbH Sanitär &amp; Heizung, Hamburg" width="1600" height="1000" loading="lazy" decoding="async">
+          <img src="assets/previews/gaerte-shk.png" alt="Screenshot gaerte-shk.de — Gaerte GmbH Sanitär &amp; Heizung, Hamburg" width="1366" height="820" loading="lazy" decoding="async">
           <span class="portfolio-shot-cap">gaerte-shk.de · Live</span>
         </a>
         <div class="portfolio-info">
