@@ -4,7 +4,10 @@ Eine URL = eine Hauptintention. Die **Startseite** [`index.html`](../index.html)
 
 | Haupt-URL | Hauptintention (1 Satz) | Unterstützende Themen / Long-Tail |
 |-----------|-------------------------|-------------------------------------|
-| `https://webbrüder.de/` | Webseiten erstellen lassen mit Webdesign, SEO und GEO für KMU in Deutschland | Webdesign Frankfurt, Webentwicklung, ohne Baukasten, DSGVO |
+| `https://webbrüder.de/` | Ganzheitlicher digitaler Markenauftritt für KMU: Marketingstrategie, Social Media, Website, SEO und GEO | Digitaler Neustart, Webdesign Frankfurt, ohne Baukasten |
+| `https://webbrüder.de/marketing-strategie.html` | Marketingstrategie für KMU (Positionierung, Kanäle, Content-Roadmap) | Marketing Strategie KMU, Positionierung, Kanalstrategie |
+| `https://webbrüder.de/social-media-betreuung.html` | Social-Media-Betreuung für KMU (Strategie, Posting, Reporting) | Social Media Betreuung, Instagram Unternehmen, LinkedIn KMU |
+| `https://webbrüder.de/digitaler-neustart.html` | Komplett-Neuaufsetzung digitaler Auftritt von Strategie bis Livegang | Relaunch Website, digitaler Neustart KMU, Markenauftritt online |
 | `https://webbrüder.de/gastronomie-webseite.html` | Website / Webseite für Gastronomie (Restaurant, Speisekarte, Reservierung) | Webseite Restaurant, Gastro Website, lokal SEO |
 | `https://webbrüder.de/handwerk-webseite.html` | Website für Handwerk / SHK / Elektro (Leistungen, Vertrauen, lokale Suche) | Handwerker Website, SHK Webseite, Meisterbetrieb online |
 | `https://webbrüder.de/impressum.html` | Rechtliche Anbieterkennung | — |
