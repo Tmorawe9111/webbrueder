@@ -12,9 +12,13 @@
 
 .service-pillars {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 1.25rem;
   margin-bottom: 1.5rem;
+}
+
+@media (max-width: 640px) {
+  .service-pillars { grid-template-columns: 1fr; }
 }
 
 .service-pillar {
@@ -345,7 +349,6 @@
 }
 
 @media (max-width: 900px) {
-  .service-pillars { grid-template-columns: 1fr; }
   .flagship-banner {
     grid-template-columns: 1fr;
     text-align: left;
