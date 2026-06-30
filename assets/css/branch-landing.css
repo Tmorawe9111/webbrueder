@@ -1,0 +1,430 @@
+/* Webbrüder — Branchen-Landings (Gastronomie, Handwerk) */
+
+/* ——— Premium Header ——— */
+.site-header--premium {
+  background: rgba(250, 250, 248, 0.94);
+  border-bottom: 1px solid var(--border);
+  box-shadow: 0 1px 0 rgba(15, 20, 16, 0.04);
+}
+
+.site-header--premium .header-inner {
+  padding: clamp(1rem, 2.5vw, 1.35rem) clamp(1.25rem, 4vw, 2rem);
+  align-items: center;
+}
+
+.header-brand-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  flex-shrink: 0;
+}
+
+.site-header--premium .logo {
+  font-size: clamp(1.12rem, 2.5vw, 1.28rem);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+.header-tagline {
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  line-height: 1.4;
+}
+
+@media (max-width: 880px) {
+  .site-header--premium .header-inner {
+    flex-wrap: wrap;
+  }
+  .header-brand-wrap {
+    flex: 1 1 auto;
+    min-width: 0;
+  }
+}
+
+/* ——— Branch Hero ——— */
+.landing-hero--branch {
+  padding: clamp(4rem, 9vw, 6.5rem) 0 clamp(2.75rem, 6vw, 4rem);
+  background:
+    radial-gradient(ellipse 80% 60% at 100% 0%, rgba(45, 90, 61, 0.12) 0%, transparent 55%),
+    linear-gradient(180deg, var(--accent-light) 0%, var(--bg) 48%, var(--bg) 100%);
+  border-bottom: 1px solid var(--border);
+}
+
+.landing-hero-inner--branch {
+  grid-template-columns: minmax(0, 1.05fr) minmax(240px, 0.95fr);
+  gap: clamp(1.5rem, 4vw, 3rem);
+  align-items: center;
+}
+
+.landing-hero-copy {
+  min-width: 0;
+}
+
+.landing-hero--branch h1 {
+  font-size: var(--display-xl);
+  line-height: 1.06;
+  max-width: 14ch;
+  margin-bottom: 1.15rem;
+}
+
+.landing-hero--branch h1 em {
+  font-style: italic;
+  font-weight: 400;
+  color: var(--accent);
+}
+
+.landing-hero--branch .lead {
+  font-size: clamp(1.02rem, 2vw, 1.12rem);
+  max-width: 36rem;
+  line-height: 1.65;
+}
+
+.hero-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 0.65rem;
+  list-style: none;
+  margin: 0 0 1.5rem;
+  padding: 0;
+}
+
+.hero-chips li {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 0.45rem 0.85rem;
+  border-radius: var(--radius-pill);
+  background: var(--white);
+  border: 1px solid rgba(45, 90, 61, 0.18);
+  color: var(--accent);
+}
+
+.landing-hero-visual-stack {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.85rem;
+  align-self: center;
+}
+
+.landing-hero-visual-stack .hero-shot {
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: var(--glow), var(--shadow-lg);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  background: var(--white);
+  margin: 0;
+}
+
+.landing-hero-visual-stack .hero-shot:nth-child(2) {
+  transform: translateY(1.25rem);
+}
+
+.landing-hero-visual-stack img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+}
+
+.landing-hero-visual-stack figcaption {
+  padding: 0.6rem 0.85rem;
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  border-top: 1px solid var(--border);
+  font-weight: 500;
+}
+
+.landing-hero-visual--single {
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: var(--glow), var(--shadow-lg);
+  line-height: 0;
+}
+
+.landing-hero-visual--single img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  display: block;
+}
+
+@media (max-width: 900px) {
+  .landing-hero-inner--branch {
+    grid-template-columns: 1fr;
+  }
+
+  .landing-hero--branch h1 {
+    max-width: none;
+  }
+
+  .landing-hero-visual-stack {
+    max-width: 32rem;
+    margin: 0 auto;
+  }
+
+  .landing-hero-visual-stack .hero-shot:nth-child(2) {
+    transform: none;
+  }
+}
+
+@media (max-width: 520px) {
+  .landing-hero-visual-stack {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .landing-hero-visual-stack .hero-shot:nth-child(2) {
+    transform: none;
+  }
+}
+
+/* ——— Showcase ——— */
+.showcase-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: clamp(1.25rem, 3vw, 2rem);
+  margin-top: 1.75rem;
+}
+
+.showcase-grid--triple {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+@media (max-width: 960px) {
+  .showcase-grid--triple { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 800px) {
+  .showcase-grid { grid-template-columns: 1fr; }
+}
+
+.show-card {
+  background: var(--surface-elevated);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-md);
+  display: flex;
+  flex-direction: column;
+  transition: box-shadow var(--dur-base) var(--ease-out),
+    transform var(--dur-fast) var(--ease-out);
+}
+
+.show-card:hover {
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-3px);
+}
+
+.show-card-visual {
+  position: relative;
+  line-height: 0;
+  background: var(--bg-alt);
+}
+
+.show-card-visual img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.show-card-body {
+  padding: 1.35rem 1.5rem 1.5rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.show-tag {
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 0.35rem;
+}
+
+.show-card-body h3 {
+  font-family: var(--serif);
+  font-size: 1.2rem;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+
+.show-card-body p {
+  font-size: 0.92rem;
+  color: var(--text-muted);
+  font-weight: 300;
+  margin-bottom: 0.75rem;
+  flex: 1;
+}
+
+.show-result {
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: var(--text);
+  margin-bottom: 1rem;
+}
+
+.show-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.show-actions .btn {
+  padding: 0.55rem 1rem;
+  font-size: 0.82rem;
+}
+
+.show-card--external .show-card-visual::after {
+  content: 'Branchenbeispiel';
+  position: absolute;
+  top: 0.65rem;
+  right: 0.65rem;
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 0.3rem 0.55rem;
+  border-radius: var(--radius-pill);
+  background: rgba(15, 20, 16, 0.72);
+  color: var(--white);
+}
+
+.show-tag--inspo {
+  color: var(--text-muted);
+}
+
+.show-inspo-note {
+  font-size: 0.78rem;
+  font-weight: 400;
+  color: var(--text-muted);
+  font-style: italic;
+  margin-bottom: 0.5rem;
+  line-height: 1.45;
+}
+
+/* ——— Fact band accent ——— */
+.fact-band--accent {
+  border-left: 4px solid var(--accent);
+}
+
+/* ——— SEO & Marketing panel ——— */
+.seo-marketing-panel {
+  background: var(--surface-elevated);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: clamp(1.75rem, 4vw, 2.5rem);
+  box-shadow: var(--shadow-sm);
+}
+
+.seo-marketing-intro {
+  max-width: 40rem;
+  margin-bottom: clamp(1.75rem, 4vw, 2.5rem);
+}
+
+.seo-marketing-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-bottom: 1.75rem;
+}
+
+.seo-marketing-card {
+  padding: 1.35rem 1.25rem;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  transition: border-color var(--dur-base) var(--ease-out),
+    box-shadow var(--dur-base) var(--ease-out);
+}
+
+.seo-marketing-card:hover {
+  border-color: rgba(45, 90, 61, 0.35);
+  box-shadow: var(--shadow-sm);
+}
+
+.seo-marketing-card-icon {
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: var(--radius-sm);
+  background: var(--accent-light);
+  color: var(--accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0.85rem;
+}
+
+.seo-marketing-card-icon svg {
+  width: 20px;
+  height: 20px;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.seo-marketing-card h3 {
+  font-family: var(--sans);
+  font-size: 0.95rem;
+  font-weight: 600;
+  margin-bottom: 0.45rem;
+  color: var(--text);
+}
+
+.seo-marketing-card p {
+  font-size: 0.86rem;
+  font-weight: 300;
+  color: var(--text-muted);
+  line-height: 1.55;
+  margin: 0;
+}
+
+.seo-marketing-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem 0.85rem;
+  align-items: center;
+}
+
+@media (max-width: 768px) {
+  .seo-marketing-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ——— Section intro band ——— */
+.intro-proof-band {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem 2.5rem;
+  padding: 1.25rem 0 0;
+  border-top: 1px solid var(--border);
+  margin-top: 2rem;
+}
+
+.intro-proof-item strong {
+  display: block;
+  font-size: 1.35rem;
+  font-family: var(--serif);
+  font-weight: 500;
+  color: var(--accent);
+  line-height: 1.2;
+  margin-bottom: 0.2rem;
+}
+
+.intro-proof-item span {
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}

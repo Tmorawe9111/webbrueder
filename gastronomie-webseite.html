@@ -74,658 +74,66 @@
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/webbrueder-tokens.css">
+<link rel="stylesheet" href="assets/css/landing.css">
+<link rel="stylesheet" href="assets/css/branch-landing.css">
 <link rel="stylesheet" href="assets/css/marketing-components.css">
-<style>
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-:root {
-  --bg: #FAFAF8;
-  --bg-alt: #F3F1ED;
-  --text: #1A1A1A;
-  --text-muted: #6B6B6B;
-  --accent: #2D5A3D;
-  --accent-hover: #234a32;
-  --white: #fff;
-  --border: #E5E3DE;
-  --serif: 'Playfair Display', Georgia, serif;
-  --sans: 'Inter', -apple-system, sans-serif;
-  --max: 1080px;
-  --radius: 14px;
-  --shadow: 0 1px 0 rgba(0,0,0,0.04), 0 22px 55px rgba(0,0,0,0.08);
-}
-
-html { scroll-behavior: smooth; }
-
-body {
-  font-family: var(--sans);
-  background: var(--bg);
-  color: var(--text);
-  font-size: 1rem;
-  line-height: 1.7;
-  -webkit-font-smoothing: antialiased;
-}
-
-a { color: var(--accent); text-decoration: none; }
-a:hover { text-decoration: underline; }
-
-/* ——— Header ——— */
-.site-header {
-  position: sticky;
-  top: 0;
-  z-index: 50;
-  background: rgba(250, 250, 248, 0.92);
-  backdrop-filter: blur(10px);
-  border-bottom: 1px solid var(--border);
-}
-
-.header-inner {
-  max-width: var(--max);
-  margin: 0 auto;
-  padding: 0.9rem clamp(1.25rem, 4vw, 2rem);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-  flex-wrap: wrap;
-  position: relative;
-}
-
-.logo {
-  font-family: var(--sans);
-  font-size: 1.08rem;
-  font-weight: 600;
-  color: var(--text);
-}
-.logo span { color: var(--accent); }
-
-.nav-inline {
-  display: flex;
-  align-items: center;
-  gap: 1.25rem;
-  flex-wrap: wrap;
-  font-size: 0.88rem;
-  font-weight: 500;
-}
-
-.nav-inline a {
-  color: var(--text-muted);
-  text-decoration: none;
-}
-.nav-inline a:hover { color: var(--accent); }
-
-.nav-skip-toggle {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border: 0;
-}
-
-.nav-skip-toggle:focus-visible + .menu-btn {
-  outline: 2px solid var(--accent);
-  outline-offset: 2px;
-}
-
-.menu-btn {
-  display: none;
-  align-items: center;
-  justify-content: center;
-  width: 44px;
-  height: 44px;
-  border: 1px solid var(--border);
-  border-radius: 10px;
-  background: var(--white);
-  cursor: pointer;
-  color: var(--text);
-  flex-shrink: 0;
-}
-
-.menu-btn span {
-  display: block;
-  width: 20px;
-  height: 2px;
-  background: currentColor;
-  position: relative;
-  border-radius: 1px;
-}
-
-.menu-btn span::before,
-.menu-btn span::after {
-  content: '';
-  position: absolute;
-  left: 0;
-  width: 20px;
-  height: 2px;
-  background: currentColor;
-  border-radius: 1px;
-}
-
-.menu-btn span::before { top: -7px; }
-.menu-btn span::after { top: 7px; }
-
-.header-bar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-  flex: 1 1 auto;
-  min-width: 0;
-}
-
-@media (min-width: 881px) {
-  .header-inner {
-    flex-wrap: nowrap;
-  }
-  .header-bar {
-    flex: 0 0 auto;
-    width: auto;
-    justify-content: flex-start;
-  }
-  .nav-inline {
-    margin-left: auto;
-  }
-}
-
-@media (max-width: 880px) {
-  .menu-btn { display: flex; }
-
-  .header-inner {
-    flex-direction: row;
-    flex-wrap: wrap;
-  }
-
-  .header-bar {
-    flex: 1 1 100%;
-    width: 100%;
-  }
-
-  .nav-inline {
-    display: none;
-    flex-direction: column;
-    align-items: stretch;
-    gap: 0.35rem;
-    width: 100%;
-    flex: 1 1 100%;
-    padding: 1rem 0 0.25rem;
-    border-top: 1px solid var(--border);
-    margin-top: 0;
-  }
-
-  .nav-inline a {
-    padding: 0.55rem 0;
-    border-bottom: 1px solid rgba(0,0,0,0.05);
-  }
-
-  .nav-inline a.btn {
-    margin-top: 0.35rem;
-    text-align: center;
-    border-bottom: none;
-  }
-
-  .nav-skip-toggle:checked ~ .nav-inline {
-    display: flex;
-  }
-}
-
-.btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.45rem;
-  padding: 0.65rem 1.25rem;
-  font-family: var(--sans);
-  font-size: 0.88rem;
-  font-weight: 600;
-  border-radius: 999px;
-  border: none;
-  cursor: pointer;
-  text-decoration: none;
-  transition: background 0.2s, transform 0.15s;
-}
-
-.btn-primary {
-  background: var(--accent);
-  color: var(--white);
-}
-.btn-primary:hover {
-  background: var(--accent-hover);
-  transform: translateY(-1px);
-  text-decoration: none;
-  color: var(--white);
-}
-
-.btn-outline {
-  background: transparent;
-  color: var(--accent);
-  border: 1.5px solid rgba(45, 90, 61, 0.35);
-}
-.btn-outline:hover {
-  border-color: var(--accent);
-  text-decoration: none;
-}
-
-/* ——— Layout ——— */
-.wrap {
-  max-width: var(--max);
-  margin: 0 auto;
-  padding: 0 clamp(1.25rem, 4vw, 2rem);
-}
-
-.section {
-  padding: clamp(2.75rem, 7vw, 4.5rem) 0;
-}
-
-.section--alt {
-  background: var(--bg-alt);
-}
-
-.eyebrow {
-  font-size: 0.72rem;
-  font-weight: 600;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: var(--accent);
-  margin-bottom: 0.75rem;
-}
-
-h1 {
-  font-family: var(--serif);
-  font-size: clamp(2rem, 5vw, 2.85rem);
-  font-weight: 400;
-  line-height: 1.15;
-  letter-spacing: -0.02em;
-  margin-bottom: 1rem;
-}
-
-h2 {
-  font-family: var(--serif);
-  font-size: clamp(1.45rem, 3.5vw, 1.85rem);
-  font-weight: 400;
-  margin-bottom: 0.5rem;
-}
-
-.lead {
-  font-size: 1.05rem;
-  font-weight: 300;
-  color: var(--text-muted);
-  max-width: 38rem;
-  margin-bottom: 1.75rem;
-}
-
-.hero-actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.75rem 1rem;
-  margin-bottom: 2.5rem;
-}
-
-/* ——— Hero preview strip ——— */
-.hero-dual {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1rem;
-  max-width: 52rem;
-}
-
-@media (max-width: 640px) {
-  .hero-dual { grid-template-columns: 1fr; }
-}
-
-.hero-shot {
-  border-radius: var(--radius);
-  overflow: hidden;
-  box-shadow: var(--shadow);
-  border: 1px solid rgba(0,0,0,0.06);
-  background: var(--white);
-}
-
-.hero-shot img {
-  display: block;
-  width: 100%;
-  height: auto;
-  vertical-align: middle;
-}
-
-.hero-shot figcaption {
-  padding: 0.65rem 1rem;
-  font-size: 0.78rem;
-  color: var(--text-muted);
-  border-top: 1px solid var(--border);
-}
-
-/* ——— Showcase cards ——— */
-.showcase-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: clamp(1.25rem, 3vw, 2rem);
-  margin-top: 1.75rem;
-}
-
-@media (max-width: 800px) {
-  .showcase-grid { grid-template-columns: 1fr; }
-}
-
-.show-card {
-  background: var(--white);
-  border-radius: var(--radius);
-  overflow: hidden;
-  border: 1px solid rgba(0,0,0,0.06);
-  box-shadow: var(--shadow);
-  display: flex;
-  flex-direction: column;
-}
-
-.show-card-visual {
-  position: relative;
-  line-height: 0;
-  background: #eee;
-}
-
-.show-card-visual img {
-  width: 100%;
-  height: auto;
-  display: block;
-}
-
-.show-card-body {
-  padding: 1.35rem 1.5rem 1.5rem;
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-}
-
-.show-tag {
-  font-size: 0.68rem;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--accent);
-  margin-bottom: 0.35rem;
-}
-
-.show-card-body h3 {
-  font-family: var(--serif);
-  font-size: 1.2rem;
-  font-weight: 500;
-  margin-bottom: 0.5rem;
-}
-
-.show-card-body p {
-  font-size: 0.92rem;
-  color: var(--text-muted);
-  font-weight: 300;
-  margin-bottom: 0.75rem;
-  flex: 1;
-}
-
-.show-result {
-  font-size: 0.82rem;
-  font-weight: 500;
-  color: var(--text);
-  margin-bottom: 1rem;
-}
-
-.show-actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-}
-
-.show-actions .btn {
-  padding: 0.55rem 1rem;
-  font-size: 0.82rem;
-}
-
-/* ——— Benefits ——— */
-.benefits {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 1.25rem;
-  margin-top: 1.75rem;
-}
-
-.benefit {
-  padding: 1.35rem 1.4rem;
-  background: var(--white);
-  border-radius: 12px;
-  border: 1px solid var(--border);
-}
-
-.benefit-num {
-  font-size: 0.75rem;
-  font-weight: 700;
-  color: var(--accent);
-  margin-bottom: 0.5rem;
-}
-
-.benefit h3 {
-  font-family: var(--sans);
-  font-size: 0.98rem;
-  font-weight: 600;
-  margin-bottom: 0.4rem;
-}
-
-.benefit p {
-  font-size: 0.88rem;
-  color: var(--text-muted);
-  font-weight: 300;
-  line-height: 1.6;
-}
-
-/* ——— Fact band ——— */
-.fact-band {
-  background: var(--white);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 1.5rem 1.65rem;
-  border-left: 4px solid var(--accent);
-  margin-top: 1.5rem;
-}
-
-.fact-band p {
-  font-size: 0.9rem;
-  color: var(--text-muted);
-  margin-bottom: 0.5rem;
-}
-
-.fact-band p:last-child { margin-bottom: 0; }
-.fact-band strong { color: var(--text); font-weight: 600; }
-
-/* ——— CTA stripe ——— */
-.cta-stripe {
-  background: linear-gradient(135deg, var(--accent) 0%, #1e4029 100%);
-  color: var(--white);
-  text-align: center;
-  padding: clamp(2.5rem, 6vw, 3.5rem) 1.5rem;
-}
-
-.cta-stripe h2 {
-  color: var(--white);
-  margin-bottom: 0.65rem;
-}
-
-.cta-stripe p {
-  opacity: 0.92;
-  font-weight: 300;
-  max-width: 32rem;
-  margin: 0 auto 1.5rem;
-  font-size: 1rem;
-}
-
-.cta-stripe .btn-primary {
-  background: var(--white);
-  color: var(--accent);
-}
-.cta-stripe .btn-primary:hover {
-  background: var(--bg-alt);
-  color: var(--accent-hover);
-}
-
-.cta-stripe .btn-outline {
-  border-color: rgba(255,255,255,0.55);
-  color: var(--white);
-}
-.cta-stripe .btn-outline:hover {
-  background: rgba(255,255,255,0.12);
-  color: var(--white);
-}
-
-/* ——— Kontakt ——— */
-#kontakt {
-  scroll-margin-top: 5rem;
-}
-
-.kontakt-box {
-  max-width: 36rem;
-  margin: 0 auto;
-  text-align: center;
-}
-
-.kontakt-lead {
-  color: var(--text-muted);
-  font-weight: 300;
-  margin-bottom: 1.75rem;
-  font-size: 0.98rem;
-}
-
-.kontakt-row {
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
-}
-
-.kontakt-btn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.65rem;
-  padding: 1rem 1.25rem;
-  border-radius: 12px;
-  font-weight: 600;
-  font-size: 0.92rem;
-  text-decoration: none;
-  transition: transform 0.15s, box-shadow 0.2s;
-}
-
-.kontakt-btn:hover {
-  transform: translateY(-2px);
-  text-decoration: none;
-}
-
-.kontakt-btn svg {
-  width: 22px;
-  height: 22px;
-  flex-shrink: 0;
-}
-
-.kontakt-wa {
-  background: #25D366;
-  color: #fff;
-  box-shadow: 0 4px 20px rgba(37, 211, 102, 0.35);
-}
-.kontakt-wa:hover { color: #fff; }
-
-.kontakt-tel {
-  background: var(--accent);
-  color: #fff;
-}
-.kontakt-tel:hover { color: #fff; background: var(--accent-hover); }
-
-.kontakt-mail {
-  background: var(--white);
-  color: var(--text);
-  border: 1px solid var(--border);
-}
-.kontakt-mail:hover { color: var(--accent); }
-
-/* ——— Footer ——— */
-footer.legal-foot {
-  padding: 2rem clamp(1.25rem, 4vw, 2rem);
-  border-top: 1px solid var(--border);
-  text-align: center;
-  font-size: 0.78rem;
-  color: var(--text-muted);
-  background: var(--bg);
-}
-
-footer.legal-foot a { color: var(--text-muted); }
-footer.legal-foot a:hover { color: var(--accent); }
-
-/* ——— FAB ——— */
-.wa-fab {
-  position: fixed;
-  bottom: 1.35rem;
-  right: 1.35rem;
-  width: 56px;
-  height: 56px;
-  border-radius: 50%;
-  background: #25D366;
-  color: #fff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 6px 28px rgba(0,0,0,0.2);
-  z-index: 60;
-  transition: transform 0.2s;
-}
-.wa-fab:hover {
-  transform: scale(1.06);
-  text-decoration: none;
-  color: #fff;
-}
-.wa-fab svg { width: 28px; height: 28px; fill: currentColor; }
-
-@media (min-width: 900px) {
-  .wa-fab { bottom: 2rem; right: 2rem; }
-}
-</style>
 </head>
 <body>
 
-<header class="site-header">
+<header class="site-header site-header--premium">
   <div class="header-inner">
-    <input type="checkbox" id="nav-toggle-gastro" class="nav-skip-toggle">
-    <div class="header-bar">
+    <div class="header-brand-wrap">
       <a href="index.html" class="logo">web<span>brüder</span></a>
-      <label for="nav-toggle-gastro" class="menu-btn" aria-label="Menü öffnen und schließen"><span></span></label>
+      <span class="header-tagline">Gastronomie · Strategie · Social · SEO · Web</span>
     </div>
-    <nav class="nav-inline" aria-label="Seitennavigation">
-      <a href="#beispiele">Beispiele</a>
-      <a href="#leistungen">Leistungen</a>
-      <a href="marketing-strategie.html">Marketing</a>
-      <a href="#seo">SEO &amp; GEO</a>
-      <a href="handwerk-webseite.html">Handwerk</a>
-      <a class="btn btn-primary" href="#kontakt">Erstgespräch</a>
-    </nav>
+    <div class="header-bar">
+      <input type="checkbox" id="nav-toggle-gastro" class="nav-skip-toggle" aria-hidden="true" tabindex="-1">
+      <label for="nav-toggle-gastro" class="menu-btn" aria-label="Menü öffnen und schließen"><span></span></label>
+      <nav class="nav-inline" aria-label="Seitennavigation">
+        <a href="#beispiele">Beispiele</a>
+        <a href="#leistungen">Leistungen</a>
+        <a href="marketing-strategie.html">Marketing</a>
+        <a href="#seo">Sichtbarkeit</a>
+        <a href="handwerk-webseite.html">Handwerk</a>
+        <a class="btn btn-primary" href="#kontakt">Erstgespräch</a>
+      </nav>
+    </div>
   </div>
 </header>
 
 <main>
-  <section class="section">
-    <div class="wrap">
-      <p class="eyebrow">Gastronomie · Marketing &amp; Markenauftritt</p>
-      <h1>Marketing &amp; Website für Gastronomie — Gäste gewinnen, nicht nur informieren</h1>
-      <p class="lead">Stimmung, Speisekarte und Reservierung online — plus auf Wunsch Strategie, Social Media und SEO aus einer Linie. Referenzen Luolou &amp; Deli Fiona zeigen, wie ein stimmiger Auftritt Gäste überzeugt und bei Google sowie KI-Suche sichtbar macht.</p>
-      <div class="hero-actions">
-        <a class="btn btn-primary" href="#kontakt">Unverbindlich anfragen</a>
-        <a class="btn btn-outline" href="#beispiele">Zwei Live-Beispiele ansehen</a>
-        <a class="btn btn-outline" href="https://wa.me/4969123456789?text=Hallo%2C%20ich%20plane%20eine%20neue%20Website%20f%C3%BCr%20mein%20Restaurant%20%2F%20meine%20Gastronomie%20%28Webbr%C3%BCder%29." target="_blank" rel="noopener noreferrer">WhatsApp</a>
+  <section class="landing-hero landing-hero--branch">
+    <div class="wrap landing-hero-inner landing-hero-inner--branch">
+      <div class="landing-hero-copy">
+        <p class="eyebrow">Gastronomie · Marketing &amp; Markenauftritt</p>
+        <h1>Marketing &amp; Website — <em>Gäste gewinnen</em></h1>
+        <p class="lead">Stimmung, Speisekarte und Reservierung online — plus auf Wunsch Strategie, Social Media und SEO aus einer Linie. Live-Referenzen zeigen, wie ein stimmiger Auftritt überzeugt und bei Google sowie KI-Suche sichtbar wird.</p>
+        <ul class="hero-chips" aria-label="Leistungsschwerpunkte">
+          <li>Strategie</li>
+          <li>Social Media</li>
+          <li>SEO &amp; GEO</li>
+          <li>Website</li>
+        </ul>
+        <div class="hero-actions" style="margin-bottom:0">
+          <a class="btn btn-primary" href="#kontakt">Erstgespräch</a>
+          <a class="btn btn-outline" href="#beispiele">Live-Referenzen</a>
+        </div>
+        <div class="intro-proof-band">
+          <div class="intro-proof-item"><strong>2</strong><span>Live Gastro-Referenzen</span></div>
+          <div class="intro-proof-item"><strong>1</strong><span>Ansprechpartner</span></div>
+          <div class="intro-proof-item"><strong>+40%</strong><span>Reservierungen Luolou</span></div>
+        </div>
       </div>
-
-      <div class="hero-dual" aria-hidden="true">
+      <div class="landing-hero-visual-stack">
         <figure class="hero-shot">
-          <img src="assets/previews/luolou.png" alt="" width="800" height="450" loading="eager" decoding="async">
-          <figcaption>Luolou — Restaurant, Kronberg</figcaption>
+          <img src="assets/previews/luolou.png" alt="Website Restaurant Luolou, Kronberg" width="800" height="500" loading="eager" decoding="async">
+          <figcaption>Luolou — Kronberg</figcaption>
         </figure>
         <figure class="hero-shot">
-          <img src="assets/previews/delifiona.png" alt="" width="800" height="450" loading="eager" decoding="async">
-          <figcaption>Deli Fiona — Restaurant &amp; Vinothek, Kronberg</figcaption>
+          <img src="assets/previews/delifiona.png" alt="Website Deli Fiona, Kronberg" width="800" height="500" loading="eager" decoding="async">
+          <figcaption>Deli Fiona — Kronberg</figcaption>
         </figure>
       </div>
     </div>
@@ -821,7 +229,7 @@ footer.legal-foot a:hover { color: var(--accent); }
         </div>
       </div>
 
-      <div class="fact-band">
+      <div class="fact-band fact-band--accent">
         <h3 style="font-family:var(--serif);font-size:1.05rem;font-weight:500;margin-bottom:0.85rem;color:var(--text);">Kurz zu Webbrüder</h3>
         <p><strong>Wer:</strong> Webbrüder — Ulrich Todd Morawe (Sitz Schmitten, Hessen).</p>
         <p><strong>Was:</strong> Marketing und Webauftritt: Strategie, Social Media, SEO/GEO und individuelle Websites — abgestimmt auf Gastronomie.</p>
@@ -837,17 +245,40 @@ footer.legal-foot a:hover { color: var(--accent); }
 
   <section class="section section--alt" id="seo">
     <div class="wrap">
-      <p class="eyebrow">Sichtbarkeit</p>
-      <h2>SEO &amp; GEO für Restaurants</h2>
-      <p class="lead" style="margin-bottom:1rem">Lokale Suche („Restaurant in …“) und strukturierte Inhalte helfen Google — und KI-Assistenten können Ihr Angebot zuverlässiger einordnen, wenn Fakten und Texte zusammenpassen.</p>
-      <ul style="margin-left:1.2rem;color:var(--text-muted);font-size:0.95rem;font-weight:300;">
-        <li>Technische Basis (schnelle Seiten, sinnvolle Überschriften, Meta-Infos)</li>
-        <li>Lokale Signale und klare Angaben zu Standort und Angebot</li>
-        <li>FAQ und strukturierte Daten dort, wo es inhaltlich passt — gepflegt parallel zur Startseite</li>
-      </ul>
-      <div class="hero-actions" style="margin-top:1.75rem;">
-        <a class="btn btn-primary" href="index.html#faq">FAQ auf der Startseite</a>
-        <a class="btn btn-outline" href="mailto:kontakt@webbrüder.de?subject=Gastro-Website%20%2F%20SEO">E-Mail zu SEO &amp; GEO</a>
+      <div class="seo-marketing-panel">
+        <div class="seo-marketing-intro">
+          <p class="eyebrow">Sichtbarkeit &amp; Marketing</p>
+          <h2>Gefunden werden — in Google, lokal und per KI-Suche</h2>
+          <p class="lead" style="margin-bottom:0">SEO ist kein Extra, sondern Teil Ihres Gastro-Auftritts: Website, Social und lokale Signale gemeinsam denken — damit Gäste Sie finden, bevor sie das nächste Lokal wählen.</p>
+        </div>
+        <div class="seo-marketing-grid">
+          <article class="seo-marketing-card">
+            <div class="seo-marketing-card-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg>
+            </div>
+            <h3>Lokale Suche</h3>
+            <p>„Restaurant in …“ — Standort, Öffnungszeiten und Speisekarte klar strukturiert für Google Maps und lokale Ergebnisse.</p>
+          </article>
+          <article class="seo-marketing-card">
+            <div class="seo-marketing-card-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M4 6h16M4 12h10M4 18h14"/></svg>
+            </div>
+            <h3>Social &amp; Content</h3>
+            <p>Ein Look für Website und Social Media: Stimmung, Angebote und Events aus derselben Markenlinie — nicht vier verschiedene Auftritte.</p>
+          </article>
+          <article class="seo-marketing-card">
+            <div class="seo-marketing-card-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M12 3l2.4 7.4H22l-6 4.6 2.3 7L12 17.8 5.7 22l2.3-7-6-4.6h7.6L12 3z"/></svg>
+            </div>
+            <h3>GEO &amp; KI-Suche</h3>
+            <p>Strukturierte Fakten und FAQ-Inhalte, damit KI-Assistenten Ihr Restaurant zuverlässig empfehlen können.</p>
+          </article>
+        </div>
+        <div class="seo-marketing-links">
+          <a class="btn btn-primary" href="seo-sichtbarkeit.html">SEO &amp; Sichtbarkeit</a>
+          <a class="btn btn-outline" href="social-media-betreuung.html">Social Media</a>
+          <a class="btn btn-outline" href="marketing-strategie.html">Marketingstrategie</a>
+        </div>
       </div>
     </div>
   </section>
