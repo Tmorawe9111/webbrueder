@@ -62,24 +62,29 @@
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/webbrueder-tokens.css">
-<link rel="stylesheet" href="assets/css/marketing-components.css">
 <link rel="stylesheet" href="assets/css/landing.css">
+<link rel="stylesheet" href="assets/css/branch-landing.css">
+<link rel="stylesheet" href="assets/css/marketing-components.css">
+<link rel="stylesheet" href="assets/css/rebrand-wow.css">
 </head>
 <body>
 
-<header class="site-header">
+<header class="site-header site-header--premium">
   <div class="header-inner">
-    <a href="index.html" class="logo">web<span>brüder</span></a>
+    <div class="header-brand-wrap">
+      <a href="index.html" class="logo">web<span>brüder</span></a>
+      <span class="header-tagline">Strategie · Social · SEO · Web</span>
+    </div>
     <div class="header-bar">
       <input type="checkbox" id="navToggle" class="nav-skip-toggle" aria-hidden="true" tabindex="-1">
       <label for="navToggle" class="menu-btn" aria-label="Menü"><span></span></label>
       <nav class="nav-inline" aria-label="Seitennavigation">
         <a href="marketing-strategie.html">Marketing</a>
         <a href="social-media-betreuung.html">Social Media</a>
+        <a href="seo-sichtbarkeit.html">SEO</a>
         <a href="index.html#ablauf-ganzheitlich">Ablauf</a>
-        <a href="index.html#projekte">Projekte</a>
         <a href="#kontakt" class="btn btn-primary">Erstgespräch</a>
       </nav>
     </div>
@@ -87,18 +92,25 @@
 </header>
 
 <main>
-  <section class="landing-hero">
-    <div class="wrap landing-hero-inner">
-      <div>
+  <section class="landing-hero landing-hero--branch landing-hero--wow">
+    <div class="hero-mesh" aria-hidden="true"></div>
+    <div class="wrap landing-hero-inner landing-hero-inner--branch">
+      <div class="landing-hero-copy">
       <p class="eyebrow">Flaggschiff</p>
-      <h1>Ganzheitlicher Marken-Neustart — von der Strategie bis zum Livegang</h1>
-      <p class="lead">Ihr Auftritt wirkt veraltet oder uneinheitlich? Der Marken-Neustart bündelt alles: Marketingstrategie inkl. Offline-Konzepte, Social Media, SEO/GEO und Website — ein Konzept, ein Look, ein Ansprechpartner.</p>
-      <div class="hero-actions">
-        <a class="btn btn-primary" href="#kontakt">Neustart besprechen</a>
+      <h1>Marken-Neustart — <em>alles aus einem Guss</em></h1>
+      <p class="lead">Auftritt veraltet oder uneinheitlich? Strategie inkl. Offline, Social Media, SEO/GEO und Website — ein Konzept, ein Look, ein Ansprechpartner bis zum Livegang.</p>
+      <ul class="hero-chips" aria-label="Leistungsschwerpunkte">
+        <li>Strategie</li>
+        <li>Social</li>
+        <li>SEO</li>
+        <li>Website</li>
+      </ul>
+      <div class="hero-actions" style="margin-bottom:0">
+        <a class="btn btn-primary" href="#kontakt">Erstgespräch</a>
         <a class="btn btn-outline" href="index.html#ablauf-ganzheitlich">Ablauf ansehen</a>
       </div>
       </div>
-      <div class="landing-hero-visual">
+      <div class="landing-hero-visual landing-hero-visual--single">
         <picture>
           <source srcset="assets/hero/hero-marketing-bold.webp" type="image/webp">
           <img src="assets/hero/hero-marketing-bold.png" alt="Digitaler Neustart — Markenauftritt-Visual in Webbrüder-Farben" width="1536" height="1024" loading="eager" decoding="async">

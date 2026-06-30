@@ -20,7 +20,8 @@
   /* Typography */
   --serif: 'Playfair Display', Georgia, serif;
   --sans: 'Inter', -apple-system, sans-serif;
-  --display-xl: clamp(2.75rem, 6.5vw, 4.5rem);
+  --display-xl: clamp(2.85rem, 7vw, 4.75rem);
+  --display-hero: clamp(3.1rem, 8vw, 5.5rem);
   --display-md: clamp(2rem, 4vw, 3rem);
   --label: 0.72rem;
 

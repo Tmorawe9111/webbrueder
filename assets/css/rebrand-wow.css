@@ -1,0 +1,216 @@
+/* Webbrüder — Rebrand WOW layer (all marketing pages) */
+
+/* ── Hero mesh & atmosphere ── */
+.hero--wow,
+.landing-hero--wow {
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-mesh {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background:
+    radial-gradient(ellipse 70% 55% at 92% 8%, rgba(45, 90, 61, 0.22) 0%, transparent 58%),
+    radial-gradient(ellipse 50% 45% at 8% 92%, rgba(45, 90, 61, 0.14) 0%, transparent 55%),
+    linear-gradient(165deg, var(--accent-light) 0%, var(--bg) 38%, var(--bg) 100%);
+}
+
+.hero-mesh::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  opacity: 0.35;
+  background-image:
+    linear-gradient(rgba(45, 90, 61, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(45, 90, 61, 0.04) 1px, transparent 1px);
+  background-size: 48px 48px;
+  mask-image: linear-gradient(180deg, black 0%, transparent 85%);
+}
+
+.hero--wow .container,
+.hero--wow .hero-split,
+.landing-hero--wow .wrap {
+  position: relative;
+  z-index: 1;
+}
+
+.hero--wow {
+  background: transparent;
+}
+
+.hero--wow .hero-display {
+  font-size: var(--display-hero, var(--display-xl));
+  line-height: 1.02;
+}
+
+.hero-display-line--accent {
+  color: var(--accent);
+  font-style: italic;
+}
+
+.hero-display-line--ink {
+  color: var(--ink);
+}
+
+/* No-JS / reduced-motion: hero always visible */
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+
+.hero .reveal {
+  animation: wb-hero-in 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.hero .reveal:nth-child(2) { animation-delay: 0.06s; }
+.hero .reveal:nth-child(3) { animation-delay: 0.12s; }
+.hero .reveal:nth-child(4) { animation-delay: 0.18s; }
+.hero .reveal:nth-child(5) { animation-delay: 0.24s; }
+
+@keyframes wb-hero-in {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Nav premium ── */
+.nav {
+  padding: 1.35rem 0;
+  border-bottom: 1px solid rgba(45, 90, 61, 0.1);
+  box-shadow: 0 4px 24px rgba(15, 20, 16, 0.04);
+}
+
+.nav.scrolled {
+  padding: 0.85rem 0;
+}
+
+.nav-logo {
+  font-size: clamp(1.15rem, 2.5vw, 1.35rem) !important;
+  font-weight: 600;
+  letter-spacing: -0.03em;
+}
+
+.nav-tagline {
+  display: block !important;
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  color: var(--accent);
+  opacity: 0.85;
+}
+
+.nav-cta {
+  background: linear-gradient(135deg, var(--accent) 0%, #1e4a32 100%);
+  box-shadow: 0 4px 16px rgba(45, 90, 61, 0.28);
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  padding: 0.95rem 1.65rem;
+}
+
+.nav-cta:hover {
+  box-shadow: 0 6px 22px rgba(45, 90, 61, 0.38);
+  transform: translateY(-1px);
+}
+
+/* ── Buttons ── */
+.btn-primary {
+  background: linear-gradient(135deg, var(--accent) 0%, #234a32 100%);
+  box-shadow: 0 4px 18px rgba(45, 90, 61, 0.25);
+}
+
+.btn-primary:hover {
+  box-shadow: 0 8px 28px rgba(45, 90, 61, 0.35);
+}
+
+.proof-bar--dark {
+  background: var(--ink);
+  color: var(--white);
+  border-top: none;
+  border-bottom: none;
+  padding: clamp(1.5rem, 4vw, 2rem) 0 2.25rem;
+  margin-top: -1px;
+}
+
+.proof-bar--dark .proof-item {
+  color: rgba(255, 255, 255, 0.72);
+  border-right-color: rgba(255, 255, 255, 0.12);
+}
+
+.proof-bar--dark .proof-item strong {
+  color: var(--white);
+  font-size: 1.35rem;
+}
+
+/* ── Service pillars pop ── */
+.service-pillar {
+  border-radius: var(--radius-md);
+  background: var(--white);
+}
+
+.service-pillar::before {
+  height: 4px;
+  background: linear-gradient(90deg, var(--accent) 0%, #5a9e72 50%, var(--accent) 100%);
+}
+
+.marketing-services {
+  background:
+    linear-gradient(180deg, var(--bg-alt) 0%, var(--bg) 100%);
+}
+
+.flagship-banner {
+  background: linear-gradient(135deg, #0f1410 0%, #1a2e22 55%, #0f1410 100%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* ── Landing pages wow ── */
+.landing-hero--wow.landing-hero--branch {
+  padding-top: clamp(5rem, 11vw, 7rem);
+}
+
+.landing-hero--wow .landing-hero-visual--single,
+.landing-hero--wow .landing-hero-visual-stack .hero-shot {
+  box-shadow: var(--glow), 0 32px 80px rgba(15, 20, 16, 0.14);
+}
+
+.site-header--premium {
+  box-shadow: 0 2px 20px rgba(15, 20, 16, 0.05);
+}
+
+/* ── CTA stripe gradient ── */
+.cta-stripe {
+  background: linear-gradient(135deg, var(--ink) 0%, #1a2e22 100%);
+}
+
+/* ── Section rhythm ── */
+.section--alt {
+  background: var(--bg-alt);
+}
+
+.eyebrow {
+  font-weight: 600;
+  letter-spacing: 0.18em;
+}
+
+/* ── Hero visual frame homepage ── */
+.hero--wow .hero-visual-frame {
+  box-shadow:
+    var(--glow),
+    0 40px 100px rgba(15, 20, 16, 0.16);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+}
+
+.hero-stat-chips li {
+  background: var(--white);
+  border-color: rgba(45, 90, 61, 0.22);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  font-size: 0.7rem;
+  color: var(--accent);
+}
